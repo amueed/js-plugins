@@ -1,0 +1,189 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/quickslider.min.css" rel="stylesheet" />
+    <title>Quick Slider - jQuery Plugin (Live Demo)</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(230, 230, 230);
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        .content {
+            margin: 10px auto;
+            width: 1024px;
+            background-color: white;
+            border-width: 0px;
+            border-style: solid;
+            border-color: rgb(210, 210, 210);
+            border-width: 1px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 8px;
+            border-style: solid;
+            border-color: rgb(220, 220, 220);
+            border-width: 0px;
+            border-bottom-width: 1px;
+        }
+
+        .slider-container {
+            float: left;
+            padding: 8px;
+            width: 768px;
+        }
+
+        .controls-container {
+            float: left;
+            padding-top: 8px;
+            width: 240px;
+        }
+
+        .sm {
+            font-size: 12px;
+        }
+
+        .xsm {
+            font-size: 11px;
+        }
+
+        .gray {
+            color: gray;
+        }
+
+        .mar {
+            margin: 4px 4px 0px 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="header">
+            <span><b>Quick Slider - jQuery Plugin</b></span><br>
+            <span class="sm" style="color: gray;">powered by Roman Kirsanov</span>
+        </div>
+        <div class="slider-container">
+            <div id="template" style="display: none">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16723255.jpg" alt="" data-thumbnail="">
+                <img src="https://r.bstatic.com/images/hotel/840x460/167/16723259.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502462.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502467.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16722755.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16723255.jpg" alt="" data-thumbnail="">
+                <img src="https://r.bstatic.com/images/hotel/840x460/167/16723259.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502462.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502467.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16722755.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16723255.jpg" alt="" data-thumbnail="">
+                <img src="https://r.bstatic.com/images/hotel/840x460/167/16723259.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502462.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/585/58502467.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16722755.jpg" alt="" data-thumbnail="">
+                <img src="https://q.bstatic.com/images/hotel/840x460/167/16723255.jpg" alt="" data-thumbnail="">
+                <img src="https://r.bstatic.com/images/hotel/840x460/167/16723259.jpg" alt="" data-thumbnail="">
+            </div>
+            <div id="slider" class="quick-slider quick-slider-bottom">
+            </div>
+        </div>
+        <div class="controls-container sm">
+            <div class="gray xsm mar section">
+                <b>LAYOUT</b>
+            </div>
+            <div class="mar">
+                <input id="layout-top" type="radio" name="layout"> Top</input><br />
+                <input id="layout-bottom" type="radio" name="layout" checked> Bottom</input><br />
+                <input id="layout-left" type="radio" name="layout"> Left</input><br />
+                <input id="layout-right" type="radio" name="layout"> Right</input><br />
+                <input id="layout-bottom-multiline" type="radio" name="layout"> Bottom multiline</input><br />
+            </div>
+            <div>&nbsp;</div>
+            <div class="gray xsm mar section">
+                <b>SIZE</b>
+            </div>
+            <div class="mar">
+                <input id="size-small" type="radio" name="size"> Small</input><br />
+                <input id="size-regular" type="radio" name="size" checked> Regular</input><br />
+                <input id="size-large" type="radio" name="size"> Large</input><br />
+            </div>
+            <div>&nbsp;</div>
+            <div class="gray xsm mar section">
+                <b>COLOR</b>
+            </div>
+            <div class="mar">
+                <input id="color-scheme-red" type="radio" name="colorScheme"> Red</input><br />
+                <input id="color-scheme-green" type="radio" name="colorScheme"> Green</input><br />
+                <input id="color-scheme-blue" type="radio" name="colorScheme" checked> Blue</input><br />
+                <input id="color-scheme-yellow" type="radio" name="colorScheme"> Yellow</input><br />
+                <input id="color-scheme-orange" type="radio" name="colorScheme"> Orange</input><br />
+                <input id="color-scheme-purple" type="radio" name="colorScheme"> Purple</input><br />
+            </div>
+            <div>&nbsp;</div>
+            <div class="gray xsm mar section">
+                <b>ANIMATION</b>
+            </div>
+            <div class="mar">
+                <input id="animation-0" type="radio" name="animation"> No</input><br />
+                <input id="animation-1" type="radio" name="animation"> Fade</input><br />
+                <input id="animation-2" type="radio" name="animation" checked> Slide</input><br />
+            </div>
+            <div>&nbsp;</div>
+            <div class="mar">Keyboard hook is enabled. Read the manual how to enable/disable it.</div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/quickslider.min.js"></script>
+    <script>
+        function reloadSlider() {
+            $('#slider').empty();
+            $('#slider').removeClass('quick-slider-left quick-slider-top quick-slider-right quick-slider-bottom quick-slider-bottom-multiline quick-slider-small quick-slider-large quick-slider-red quick-slider-green quick-slider-blue quick-slider-yellow quick-slider-orange quick-slider-purple quick-slider-animation-fade quick-slider-animation-slide');
+
+            $('#template').children().each(function () { $(this).clone().appendTo($('#slider')); });
+
+            if ($('#layout-bottom:checked').length == 1) $('#slider').addClass('quick-slider-bottom');
+            if ($('#layout-left:checked').length == 1) $('#slider').addClass('quick-slider-left');
+            if ($('#layout-right:checked').length == 1) $('#slider').addClass('quick-slider-right');
+            if ($('#layout-top:checked').length == 1) $('#slider').addClass('quick-slider-top');
+            if ($('#layout-bottom-multiline:checked').length == 1) {
+                $('#slider').addClass('quick-slider-bottom-multiline');
+                $('#slider').css({ 'height': 'auto' });
+                $('#slider').find('.__qs_s').animate({ scrollLeft: 0 }, 'fast');
+            }
+
+            if ($('#size-small:checked').length == 1) $('#slider').addClass('quick-slider-small');
+            if ($('#size-large:checked').length == 1) $('#slider').addClass('quick-slider-large');
+
+            if ($('#color-scheme-red:checked').length == 1) $('#slider').addClass('quick-slider-red');
+            if ($('#color-scheme-green:checked').length == 1) $('#slider').addClass('quick-slider-green');
+            if ($('#color-scheme-blue:checked').length == 1) $('#slider').addClass('quick-slider-blue');
+            if ($('#color-scheme-yellow:checked').length == 1) $('#slider').addClass('quick-slider-yellow');
+            if ($('#color-scheme-orange:checked').length == 1) $('#slider').addClass('quick-slider-orange');
+            if ($('#color-scheme-purple:checked').length == 1) $('#slider').addClass('quick-slider-purple');
+
+            if ($('#animation-1:checked').length == 1) $('#slider').addClass('quick-slider-animation-fade');
+            if ($('#animation-2:checked').length == 1) $('#slider').addClass('quick-slider-animation-slide');
+
+            $('.quick-slider').quickslider();
+            $('#slider').prop('slider').select(0);
+        }
+
+        $('.controls-container').on('click', function (e) {
+            reloadSlider();
+            e.stopPropagation();
+        });
+
+        reloadSlider();
+        $(document).keydown(function (e) {
+            if ($('#slider').prop('slider').processKey(e.keyCode)) e.preventDefault();
+        });
+    </script>
+</body>
+</html>
