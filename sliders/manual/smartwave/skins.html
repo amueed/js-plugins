@@ -1,0 +1,717 @@
+﻿
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>SmartWave - jQuery Content Carousel Plugin / Skins </title>
+    <meta name="description" content="Skins for Smartwave jQuery Plugin">
+    <meta name="author" content="flGravity">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts
+    ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Muli:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/layout.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- jQuery Library & Easing
+    ================================================== -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+    <!-- SmartWave Plugin JS/CSS
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/smartwave.css">
+    <link rel="stylesheet" type="text/css" href="smartwave-skins/skins.css">
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/jquery.hoverIntent.min.js"></script>
+    <script type="text/javascript" src="js/jquery.smartwave.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /* Skin 1 */
+            $('#skin_1').smartwave({
+                visible: 3,
+                snap: true,
+                snapByOne: false,
+                easing: 'easeInOutCubic',
+                duration: 700,
+                keyboard: true,
+                autoplay: true,
+                autoplayAutoStart: false,
+                navigation: false
+            });
+
+            /* Skin 2 */
+            $('#skin_2').smartwave({
+                itemRatio: 1.33,
+                visible: 3,
+                rotate: true,
+                rotateShadows: false,
+                navigation: false
+            });
+
+            /* Skin 3 */
+            $('#skin_3').smartwave({
+                itemRatio: 1.33,
+                visible: 3,
+                pagination: false,
+                keyboard: true
+            });
+
+            /* Skin 4 */
+            $('#skin_4').smartwave({
+                itemRatio: false,
+                rotate: true,
+                rotateAngle: 10,
+                rotateShadows: false,
+                rotateNogaps: false
+            });
+
+            /* Skin 5 */
+            $('#skin_5').smartwave({
+                itemRatio: false,
+                itemMinWidth: 300,
+                snap: true,
+                navigation: false
+            });
+
+        });
+    </script>
+    <style type="text/css">
+        #skin_1 .sw-clip img {
+            width: auto;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <h1>
+            <a href="index.html">SmartWave - jQuery Content Carousel Plugin</a>
+        </h1>
+
+        <div class="menu">
+            <a href="index.html#content">&larr; Return to Examples</a>
+            <a href="http://codecanyon.net/item/smartwave-jquery-content-carousel-plugin/11177286?ref=flGravity" title="Buy plugin on Codecanyon!">Buy Now!</a>
+        </div>
+
+    </header>
+
+    <div class="container">
+
+        <section id="content" class="skins sixteen columns">
+
+
+
+            <!-- #################### SKIN 1  #################### -->
+
+            <article class="content-entry">
+
+                <h2>Skin 1</h2>
+
+                <div id="skin_1" class="smartwave sw-skin1">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Bricks By The Company Of Ghosts and Busting</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/2.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">The Latest Final Fantasy XV Demo Too Much</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/3.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">These Little Kids Talk About Balls</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/4.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Ice Hockey Is Much Better With Sharks</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/5.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">How 37 Banks Became 4 in Just 6 Seconds</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/6.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">25 Wet Cats Who Will Spend a Fortune</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/7.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Dolphins Can Remember Their Friends Better Than the Breasts</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/8.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">21 Jokes So Clever You Probably Believe</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/9.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Police Are Just Overgrown Children</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <div class="sw-clip">
+                                    <img src="pics/blank.png" data-src="pics/10.jpg" alt="">
+                                </div>
+                                <div class="sw-caption">
+                                    <h4><a href="#">15 Dogs Who Are Sick of Batman's Shit</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- .smartwave -->
+
+            </article>
+
+            <!-- #################### SKIN END  #################### -->
+            <!-- #################### SKIN 2 #################### -->
+
+            <article class="content-entry">
+
+                <h2>Skin 2</h2>
+
+                <div id="skin_2" class="smartwave sw-skin2">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Bricks By The Company Of Ghosts and Busting</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/2.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">The Latest Final Fantasy XV Demo Too Much</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/3.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">These Little Kids Talk About Balls</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/4.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Ice Hockey Is Much Better With Sharks</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/5.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">How 37 Banks Became 4 in Just 6 Seconds</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/6.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">25 Wet Cats Who Will Spend a Fortune</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/7.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Dolphins Can Remember Their Friends Better Than the Breasts</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/8.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">21 Jokes So Clever You Probably Believe</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/9.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Police Are Just Overgrown Children</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/10.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">15 Dogs Who Are Sick of Batman's Shit</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- .smartwave -->
+
+            </article>
+
+            <!-- #################### SKIN END  #################### -->
+            <!-- #################### SKIN 3 #################### -->
+
+            <article class="content-entry">
+
+                <h2>Skin 3</h2>
+
+                <div id="skin_3" class="smartwave sw-skin3">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/10.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Bricks By The Company Of Ghosts and Busting</a></h4>
+                                    <p><time datetime="2015-03-03">Mar 03, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/9.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">The Latest Final Fantasy XV Demo Too Much</a></h4>
+                                    <p><time datetime="2015-03-05">Mar 05, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/8.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">These Little Kids Talk About Balls</a></h4>
+                                    <p><time datetime="2015-03-10">Mar 10, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/7.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Ice Hockey Is Much Better With Sharks</a></h4>
+                                    <p><time datetime="2015-03-12">Mar 12, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/6.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">How 37 Banks Became 4 in Just 6 Seconds</a></h4>
+                                    <p><time datetime="2015-03-13">Mar 13, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/5.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">25 Wet Cats Who Will Spend a Fortune</a></h4>
+                                    <p><time datetime="2015-03-17">Mar 17, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/4.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Dolphins Can Remember Their Friends Better Than the Breasts</a></h4>
+                                    <p><time datetime="2015-03-20">Mar 20, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/3.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">21 Jokes So Clever You Probably Believe</a></h4>
+                                    <p><time datetime="2015-03-25">Mar 25, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/2.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Police Are Just Overgrown Children</a></h4>
+                                    <p><time datetime="2015-03-26">Mar 26, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">15 Dogs Who Are Sick of Batman's Shit</a></h4>
+                                    <p><time datetime="2015-05-01">Apr 01, 2015</time></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- .smartwave -->
+
+            </article>
+
+            <!-- #################### SKIN END  #################### -->
+            <!-- #################### SKIN 4 #################### -->
+
+            <article class="content-entry">
+
+                <h2>Skin 4</h2>
+
+                <div id="skin_4" class="smartwave sw-skin4">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/1.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">The Latest Final Fantasy</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/2.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/2.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Ghosts and Busting</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/3.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/3.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">25 Wet Cats</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/4.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/4.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">This True Story</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/5.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/5.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Join the Fight</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/6.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/6.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Your Secret Weapon</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/7.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/7.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">Body and Mind Blown!</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <a href="pics/8.jpg" target="_blank">
+                                    <img src="pics/blank.png" data-src="pics/8.jpg" alt="">
+                                </a>
+                                <div class="sw-caption">
+                                    <h4><a href="#">World’s Tallest Man</a></h4>
+                                    <p>Subtitle for this item</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- .smartwave -->
+
+            </article>
+
+            <!-- #################### SKIN END  #################### -->
+            <!-- #################### SKIN 5 #################### -->
+
+            <article class="content-entry">
+
+                <h2>Skin 5</h2>
+
+                <div id="skin_5" class="smartwave sw-skin5">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/10.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">The Latest Final Fantasy</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/9.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Ghosts and Busting</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/8.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">25 Wet Cats</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/7.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">This True Story</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/6.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Join the Fight</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/5.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Your Secret Weapon</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/4.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">Body and Mind Blown!</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/3.jpg" alt="">
+                                <div class="sw-caption">
+                                    <h4><a href="#">World’s Tallest Man</a></h4>
+                                    <p>Subtitle for this item</p>
+                                    <div class="sw-share">
+                                        <a href="#" class="sw-facebook"></a>
+                                        <a href="#" class="sw-twitter"></a>
+                                        <a href="#" class="sw-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- .smartwave -->
+            </article>
+
+        </section><!-- #content -->
+
+        <div class="sixteen columns">
+            <p class="big">
+                Instructions about installing skins you can find in plugin <a href="docs/index.html#s6">documentation</a>
+            </p>
+        </div>
+
+    </div><!-- .container -->
+
+    <footer>
+        <div class="menu">
+            <a href="#content">Top</a>
+            &nbsp; | &nbsp;
+            <a href="http://codecanyon.net/item/smartwave-jquery-content-carousel-plugin/11177286?ref=flGravity">Buy</a>
+            &nbsp; | &nbsp;
+            <span>2015 &copy; <a href="http://codecanyon.com/user/flGravity" title="Profile">flGravity</a></span>
+        </div>
+    </footer>
+
+
+    <!-- End Document
+    ================================================== -->
+
+    <script type="text/javascript">
+        $('a[href^="#"]').click(function (e) {
+            e.preventDefault();
+            if ($(this).attr('href') === '#content') {
+                $('body,html').animate({ scrollTop: $('#content').offset().top - 20 }, 500, 'easeOutCubic');
+            }
+        });
+    </script>
+
+</body>
+</html>

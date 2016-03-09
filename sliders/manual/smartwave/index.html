@@ -1,0 +1,803 @@
+﻿
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>SmartWave - jQuery Content Carousel Plugin</title>
+    <meta name="description" content="SmartWave jQuery Content Carousel Plugin">
+    <meta name="author" content="flGravity">
+
+    <!-- Redirect if page is loaded in iframe -->
+    <script type="text/javascript">
+        if (window.parent.location !== window.location) {
+            window.parent.location = 'http://plugins.gravitysign.com/smartwave/';
+        }
+    </script>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- Google Fonts
+    ================================================== -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Muli:400,700'>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/layout.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- jQuery Library & Easing
+    ================================================== -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+    <!-- SmartWave Plugin JS/CSS
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/smartwave.css">
+    <link rel="stylesheet" type="text/css" href="css/examples.css">
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/jquery.hoverIntent.min.js"></script>
+    <script type="text/javascript" src="js/jquery.smartwave.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /*
+				Basic Carousel Example
+			*/
+
+            $('#basic').smartwave({
+                itemRatio: 1.33
+            });
+
+
+            /*
+				Fullwidth Slider Example
+			*/
+
+            $('#fullwidth').smartwave({
+                itemRatio: 2.2, /* 1870 x 850 */
+                itemMaxWidth: 1870,
+                snap: true,
+                visible: 1,
+                pagination: false,
+                easing: 'easeInOutQuint',
+                duration: 700,
+                mousewheel: false
+            });
+
+
+            /*
+				News/Tabs Scroller Example
+			*/
+
+            $('#news').smartwave({
+                itemRatio: false,
+                visible: 3,
+                navigation: false,
+                keyboard: true,
+                pagination: false,
+                scrollbar: true
+            });
+
+
+            /*
+				Slider with Thumbnails Example
+			*/
+
+            $('#slider .smartwave').smartwave({
+                itemRatio: 1.33,
+                itemMaxWidth: 150,
+                itemMinWidth: 100,
+                visible: 7,
+                pagination: false,
+                navigation: false,
+                scrollbar: true,
+                onReady: function () {
+                    // make first slide/thumb active
+                    $(this).parent().find('.slides li:first').show();
+                    $(this).find('.sw-list li:first').addClass('thumb-active');
+                },
+                onActivateItem: function (thumb) {
+                    // when thumb is however or tapped on mobile show corresponsing slide
+                    var slides = $(this).parent().find('.slides li'), thumb_index = $(thumb).index(),
+						oldone = slides.filter(':visible'), newone = slides.eq(thumb_index);
+                    if (!newone.is(':visible')) {
+                        newone.css('position', '').fadeIn(300);
+                        oldone.css({ position: 'absolute', left: 0, top: 0 }).fadeOut(300);
+                        $(thumb).siblings().removeClass('thumb-active').end().addClass('thumb-active');
+                    }
+                }
+            });
+
+
+            /*
+				Video Carousel Example
+			*/
+
+            // load video images from youtube
+            $('#video').find('li').each(function () {
+                var vd = $(this), yt = vd.data('youtube');
+                if (yt) {
+                    var img = new Image();
+                    img.alt = "Video Image";
+                    img.onload = function () {
+                        vd.append('<div class="sw-content"/>');
+                        if (img.width > 200) {
+                            vd.find('div').append(img);
+                        }
+                        img.onload = undefined;
+                    };
+                    img.src = "https://i1.ytimg.com/vi/" + yt + "/sddefault.jpg";
+                }
+            });
+
+            $('#video').smartwave({
+                itemRatio: 1.77, /* 16:9 video format */
+                visible: 2,
+                itemMaxWidth: 640, /* thumb width from ytube */
+                pagination: false,
+                lazyLoadImages: false,
+                onReady: function () {
+                    var iframe = '<iframe src="http://www.youtube.com/embed/{VID}?autoplay=1&controls=0" frameborder="0" allowfullscreen></iframe>';
+                    $(this).find('.sw-list').on('click', 'li', function () {
+                        var vd = $(this);
+                        $.each(vd.siblings('.playing'), function () {
+                            $(this).removeClass('playing').find('iframe').remove();
+                        });
+                        if (!vd.hasClass('playing')) {
+                            if (vd.data('youtube')) {
+                                vd.addClass('playing').prepend(iframe.replace('{VID}', vd.data('youtube')));
+                            }
+                        }
+
+                    });
+                }
+
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <header>
+
+        <h1>
+            <a href="index.html">SmartWave - jQuery Content Carousel Plugin</a>
+        </h1>
+
+        <div class="menu">
+            <a href="docs/index.html">Documentation</a>
+            <a href="http://codecanyon.net/item/smartwave-jquery-content-carousel-plugin/11177286?ref=flGravity" title="Buy plugin on Codecanyon!">Buy Now!</a>
+        </div>
+
+        <a href="#content">Ok, let's see some examples!</a>
+
+    </header>
+
+    <div class="container">
+        <section id="content" class="sixteen columns">
+
+
+
+            <!-- #################### BASIC CAROUSEL  #################### -->
+
+            <article class="content-entry">
+
+                <h2>Basic Carousel</h2>
+
+                <div id="basic" class="smartwave">
+                    <ul class="sw-list">
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/1.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/2.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/3.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/4.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/5.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/6.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/7.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/8.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/9.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sw-content">
+                                <img src="pics/blank.png" data-src="pics/10.jpg" alt="Pic" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <br />
+
+                <div class="row">
+
+                    <div class="ten columns alpha">
+                        <p class="spec">
+                            This is a basic image carousel, nothing special. BUT WAIT! <em>SmartWave</em> is packed with 5 creative bonus skins for image carousel that you can use right away!
+                        </p>
+                    </div>
+
+                    <div class="six columns omega">
+                        <p class="skins-button">
+                            <a href="skins.html">BONUS SKINS</a>
+                            <span>Click to see skins in action</span>
+                        </p>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+    </div> <!-- .container -->
+    <!-- #################### FULLWIDTH SLIDER #################### -->
+
+    <div class="content-entry">
+
+        <div class="container">
+            <div class="sixteen columns">
+                <h2>Fullwidth Slider</h2>
+            </div>
+        </div>
+
+        <div id="fullwidth" class="smartwave">
+            <ul class="sw-list">
+                <li><img src="pics/blank.png" data-src="pics/wide/1.jpg" alt="Pic" /></li>
+                <li><img src="pics/blank.png" data-src="pics/wide/2.jpg" alt="Pic" /></li>
+                <li><img src="pics/blank.png" data-src="pics/wide/3.jpg" alt="Pic" /></li>
+                <li><img src="pics/blank.png" data-src="pics/wide/4.jpg" alt="Pic" /></li>
+                <li><img src="pics/blank.png" data-src="pics/wide/5.jpg" alt="Pic" /></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="ten columns">
+                    <p class="spec">You can use <em>SmartWave</em> not only as carousel, but as responsive fullwidth image slider - <a href="#code2" class="get-code">get code!</a></p>
+                </div>
+
+                <div class="four columns offset-by-two">
+                    <img class="move-right" src="images/resize.jpg" alt="Try to resize" />
+                </div>
+
+                <br class="clear" />
+
+<pre id="code2">
+HTML
+---
+	
+&lt;div id=&quot;fullwidth&quot; class=&quot;smartwave&quot;&gt;
+	&lt;ul class=&quot;sw-list&quot;&gt;
+		&lt;li&gt;&lt;img data-src=&quot;pics/wide/1.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img data-src=&quot;pics/wide/2.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img data-src=&quot;pics/wide/3.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img data-src=&quot;pics/wide/4.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img data-src=&quot;pics/wide/5.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+JAVASCRIPT
+---
+&lt;script type="text/javascript"&gt;
+$(document).ready(function(){
+	$('#fullwidth').smartwave({
+		itemRatio: 2.2, /* 1870 x 850 */
+		itemMaxWidth: 1870,
+		snap: true,
+		visible: 1,				
+		pagination: false,
+		easing: 'easeInOutQuint',
+		duration: 700,
+		mousewheel: false
+	});
+});
+&lt;/script&gt;
+CSS
+---
+#fullwidth img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#fullwidth.sw-has-navigation {
+	padding-top: 0!important;
+}
+#fullwidth .sw-navigation {
+	top: 50%;
+	margin-top: -26px;
+	left: 0;
+	width: 100%;
+}
+#fullwidth .sw-navigation a {
+	margin: 0;
+	padding: 10px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	background-color: #333;
+	background-color: rgba(0,0,0,0.3);
+}
+#fullwidth .sw-navigation .sw-next {
+	float: right;
+}
+#fullwidth .sw-navigation a:hover {
+	box-shadow: none;
+	background-color: #222;
+	background-color: rgba(0,0,0,0.5);
+}
+#fullwidth .sw-navigation a.sw-disabled {
+	opacity: 1;
+	background-color: #333;
+	background-color: rgba(0,0,0,0.3);
+}
+#fullwidth .sw-preload-overlay {
+	background-color: #333;
+	z-index: 499;
+}
+</pre>
+            </div><!-- .row -->
+
+        </div> <!-- .cotainer -->
+
+    </div>
+
+
+    <div class="container">
+        <section class="sixteen columns">
+
+
+            <!-- #################### NEWS SCROLLER #################### -->
+
+            <article class="content-entry">
+
+                <h2>News/Tabs Scroller</h2>
+
+                <div id="news" class="smartwave">
+                    <ul class="sw-list">
+                        <li><a href="#1">15 Animals You Didn't Know</a></li>
+                        <li><a href="#2">Proof That Cats Are Stone Cold Killers</a></li>
+                        <li><a href="#3">This Comedian Breaks Down Crying</a></li>
+                        <li><a href="#4">5 Fish Clearly Designed by Serial Killers</a></li>
+                        <li><a href="#5">9 Awesome Places to Get Off</a></li>
+                        <li><a href="#6">Science Study: Cooler People Drink More Coffee</a></li>
+                    </ul>
+                </div>
+
+                <p class="spec">
+                    With <em>SmartWave</em> plugin you can scroll almost everything you want! This example demonstrates how easy you can scroll news headings or create scrollable tabs to enhance user experience - <a class="get-code" href="#code3">get code!</a>
+                </p>
+
+<pre id="code3">
+HTML
+---
+&lt;div id=&quot;news&quot; class=&quot;smartwave&quot;&gt;
+	&lt;ul class=&quot;sw-list&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#1&quot;&gt;15 Animals You Didn't Know&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;Proof That Cats Are Stone Cold Killers&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#3&quot;&gt;This Comedian Breaks Down Crying&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#4&quot;&gt;5 Fish Clearly Designed by Serial Killers&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#5&quot;&gt;9 Awesome Places to Get Off&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#6&quot;&gt;Science Study: Cooler People Drink More Coffee&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+CSS
+---
+#news {
+	margin: 20px 0;
+}
+#news li {
+	display: table;
+	min-height: 65px;
+}
+#news li a {
+	display: table-cell;
+	padding: 10px;
+	height: 40px;
+	vertical-align: middle;	
+	background-color: #2E9979;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+#news .sw-active a {
+	background-color: #444;
+	box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.3);
+}
+#news .sw-scrollbar .sw-path,
+#news .sw-scrollbar .sw-handle {
+	height: 3px;
+	-webkit-border-radius: none;
+	-moz-border-radius: none;
+	border-radius: none;
+}
+#news .sw-scrollbar .sw-path { 
+	background-color: #f5f5f5;
+	box-shadow: none;
+}
+#news .sw-scrollbar .sw-handle {
+	background-color: #ddd;
+}
+</pre>
+
+            </article>
+
+
+            <!-- #################### SLIDER WITH THUMBS #################### -->
+
+            <article class="content-entry">
+
+                <h2>Slider with Thumbnails</h2>
+
+                <div class="row">
+
+                    <div class="four columns alpha">
+                        <p class="spec">
+                            Pretty useful image slider that uses <em>Smartwave</em> for thumbnails
+                        </p>
+
+                        <img src="images/qr.jpg" alt="QR-Code">
+
+                    </div>
+
+                    <div class="ten columns offset-by-two omega">
+
+                        <div id="slider">
+                            <!-- slides -->
+                            <ul class="slides">
+                                <li><img src="pics/1.jpg" alt="Pic" /></li>
+                                <li><img src="pics/2.jpg" alt="Pic" /></li>
+                                <li><img src="pics/3.jpg" alt="Pic" /></li>
+                                <li><img src="pics/4.jpg" alt="Pic" /></li>
+                                <li><img src="pics/5.jpg" alt="Pic" /></li>
+                                <li><img src="pics/6.jpg" alt="Pic" /></li>
+                                <li><img src="pics/7.jpg" alt="Pic" /></li>
+                                <li><img src="pics/8.jpg" alt="Pic" /></li>
+                            </ul>
+                            <!-- thumbs -->
+                            <div class="smartwave">
+                                <ul class="sw-list">
+                                    <li><img src="pics/blank.png" data-src="pics/1.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/2.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/3.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/4.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/5.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/6.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/7.jpg" alt="Pic" /></li>
+                                    <li><img src="pics/blank.png" data-src="pics/8.jpg" alt="Pic" /></li>
+                                </ul>
+                            </div>
+                        </div> <!-- #slider -->
+
+                    </div>
+
+                </div> <!-- .row -->
+
+                <div class="row">
+                    <p class="spec">Want to add this slider to your site? Ok, it's yours - <a href="#code4" class="get-code">get code!</a></p>
+
+<pre id="code4">
+HTML
+---
+					
+&lt;div id=&quot;slider&quot;&gt;
+	&lt;!-- slides --&gt;
+	&lt;ul class=&quot;slides&quot;&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/1.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/2.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/3.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/4.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/5.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/6.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/7.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src=&quot;pics/8.jpg&quot; alt=&quot;Pic&quot;/&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;!-- thumbs --&gt;
+	&lt;div class=&quot;smartwave&quot;&gt;
+		&lt;ul class=&quot;sw-list&quot;&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/1.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/2.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/3.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/4.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/5.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/6.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/7.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;img data-src=&quot;thumb/8.jpg&quot; alt=&quot;Thumb&quot;/&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt; &lt;!-- #slider --&gt;
+JAVASCRIPT
+---
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function(){
+	$('#slider .smartwave').smartwave({
+		itemRatio: 1.33,
+		itemMaxWidth: 150,
+		itemMinWidth: 100,
+		visible: 7,
+		pagination: false,
+		navigation: false,
+		scrollbar: true,
+		onReady: function(){
+			// make first slide/thumb active
+			$(this).parent().find('.slides li:first').show();
+			$(this).find('.sw-list li:first').addClass('thumb-active');
+		},
+		onActivateItem: function(thumb){
+			// when thumb is however or tapped on mobile show slide by same index
+			var slides = $(this).parent().find('.slides li'), thumb_index = $(thumb).index(),
+				oldone = slides.filter(':visible'), newone = slides.eq(thumb_index);
+			if( !newone.is(':visible') ) {
+				newone.css('position', '').fadeIn(300);				
+				oldone.css({position: 'absolute', left: 0, top: 0}).fadeOut(300);
+				$(thumb).siblings().removeClass('thumb-active').end().addClass('thumb-active');
+			}
+		}
+	});
+});
+&lt;/script&gt;
+CSS
+---
+#slider {
+	position: relative;
+	margin: 10px 0 20px;
+}
+#slider .slides {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#slider .slides li {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+#slider .sw-list img,
+#slider .slides img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#slider .sw-list img {
+	opacity: 0.5;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+#slider .thumb-active img {
+	opacity: 1;
+}
+</pre>
+
+
+                </div>
+
+            </article>
+
+
+
+            <!-- #################### VIDEO CAROUSEL #################### -->
+
+            <article class="content-entry">
+
+                <h2>Video Carousel</h2>
+
+                <p class="spec">With <em>SmartWave</em> plugin and a bit of extra code you will be able to create carousel with your favorite videos from YouTube. It automatically pulls video thumbnails from YouTube and stops any previously started video. Just provide video IDs and you are good to go - <a href="#code5" class="get-code">get code!</a></p>
+
+<pre id="code5">			
+HTML
+---	
+				
+&lt;div id=&quot;video&quot; class=&quot;smartwave&quot;&gt;
+	&lt;ul class=&quot;sw-list&quot;&gt;
+		&lt;li data-youtube=&quot;D0I1LbX4YD0&quot;&gt;&lt;/li&gt;
+		&lt;li data-youtube=&quot;72uUe5oT6B8&quot;&gt;&lt;/li&gt;
+		&lt;li data-youtube=&quot;YHWkro9-e9Q&quot;&gt;&lt;/li&gt;
+		&lt;li data-youtube=&quot;9d8wWcJLnFI&quot;&gt;&lt;/li&gt;
+		&lt;li data-youtube=&quot;-NKqfd32cx0&quot;&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+JAVASCRIPT
+---
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function(){
+	// load video images from youtube
+	$('#video').find('li').each(function(){
+		var vd = $(this), yt = vd.data('youtube');
+		if( yt ) {
+			var img = new Image();
+			img.alt = &quot;Video Image&quot;;
+			img.onload = function(){
+				vd.append('&lt;div class=&quot;sw-content&quot;/&gt;');
+				if(img.width &gt; 200) {
+					vd.find('div').append(img);
+				}
+				img.onload = undefined;
+			};
+			img.src = &quot;https://i1.ytimg.com/vi/&quot; + yt + &quot;/sddefault.jpg&quot;;
+		}
+	});
+	
+	// init SmartWave plugin
+	$('#video').smartwave({
+		itemRatio: 1.77, /* 16:9 video format */
+		visible: 2,
+		itemMaxWidth: 640, /* thumb width from ytube */
+		pagination: false,
+		lazyLoadImages: false,
+		onReady: function(){
+			var iframe = '&lt;iframe src=&quot;http://www.youtube.com/embed/{VID}?autoplay=1&amp;controls=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;';
+			$(this).find('.sw-list').on('click', 'li', function(){
+				var vd = $(this);
+				$.each(vd.siblings('.playing'), function(){
+					$(this).removeClass('playing').find('iframe').remove();
+				});
+				if(!vd.hasClass('playing')) { 
+					if(vd.data('youtube')) {
+						vd.addClass('playing').prepend(iframe.replace('{VID}', vd.data('youtube')));
+					}
+				 }
+				
+			});
+		}
+		
+	});
+});
+&lt;/script&gt;
+CSS
+---
+#video .sw-list li {
+	background: #000;
+}
+#video .sw-content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 1;	
+	visibility: visible;
+	-webkit-transition: opacity 0.5s, visibility 0s;
+	-moz-transition: opacity 0.5s, visibility 0s;
+	-o-transition: opacity 0.5s, visibility 0s;
+	transition: opacity 0.5s, visibility 0s;
+}
+#video .sw-content:before {
+	content: url(../images/youtube.png);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -24px 0 0 -24px;
+	opacity: 0.5;
+	z-index: 10;
+}
+#video iframe + .sw-content {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.5s, visibility 0s linear 0.5s;
+	-moz-transition: opacity 0.5s, visibility 0s linear 0.5s;
+	-o-transition: opacity 0.5s, visibility 0s linear 0.5s;
+	transition: opacity 0.5s, visibility 0s linear 0.5s;
+}
+#video iframe {
+	width: 100%;
+	height: 100%;
+}
+#video img {
+	margin-top: -9.4%;
+	-webkit-transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+#video .sw-active img {
+	opacity: 0.7;
+}
+#video .sw-active .sw-content:before {
+	opacity: 1;
+}
+</pre>
+
+                <div id="video" class="smartwave">
+                    <ul class="sw-list">
+                        <li data-youtube="D0I1LbX4YD0"></li>
+                        <li data-youtube="72uUe5oT6B8"></li>
+                        <li data-youtube="YHWkro9-e9Q"></li>
+                        <li data-youtube="9d8wWcJLnFI"></li>
+                        <li data-youtube="-NKqfd32cx0"></li>
+                    </ul>
+                </div>
+
+            </article>
+
+        </section>
+
+
+    </div><!-- .container -->
+
+
+    <footer>
+        <div class="menu">
+            <a href="#content">Top</a>
+            &nbsp; | &nbsp;
+            <a href="http://codecanyon.net/item/smartwave-jquery-content-carousel-plugin/11177286?ref=flGravity">Buy</a>
+            &nbsp; | &nbsp;
+            <span>2015 &copy; <a href="http://codecanyon.com/user/flGravity" title="Profile">flGravity</a></span>
+        </div>
+    </footer>
+
+
+    <!-- End Document
+    ================================================== -->
+
+    <script type="text/javascript">
+        $('a[href^="#"]').click(function () {
+            if ($(this).attr('href') === '#content') {
+                $('body,html').animate({ scrollTop: $('#content').offset().top - 20 }, 500, 'easeOutCubic');
+            }
+            return false;
+        });
+        $('.get-code').click(function () {
+            $(this.getAttribute('href')).slideToggle(500);
+            $(this).toggleClass('code-shown').text($(this).hasClass('code-shown') ? 'ok, thanks' : 'get code!');
+            return false;
+        });
+    </script>
+
+</body>
+</html>

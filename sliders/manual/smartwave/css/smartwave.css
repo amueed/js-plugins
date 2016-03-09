@@ -1,0 +1,577 @@
+/* 
+ * SmartWave - jQuery Content Carousel Plugin
+ * General Styles
+*/
+
+
+/* Container 
+============================================================== */
+
+.smartwave {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+
+/* List & Items
+============================================================== */
+
+.sw-list {
+	position: relative;
+	float: left; /* clearfix */
+	margin: 0!important;
+	padding: 0!important;
+	list-style: none!important;
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.sw-list > li {
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	/* This is initial size. Real size and aspect ratio 
+	for items is set via plugin options! */
+	width: 300px;
+	height: 300px;
+	/* Don't change perspective as it is in sync with 
+	plugin logic */
+	-webkit-perspective: 500px;
+	-moz-perspective: 500px;
+	-o-perspective: 500px;
+	perspective: 500px;
+	-webkit-perspective-origin: 50% 50%;
+	-moz-perspective-origin: 50% 50%;
+	-o-perspective-origin: 50% 50%;
+	perspective-origin: 50% 50%;
+}
+
+.sw-preload-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff url(../images/sw-preload.gif) no-repeat center;
+	z-index: 1000;
+}
+
+.sw-touchswipe .sw-list {
+	cursor: url(../images/sw-grab.png), default;
+}
+
+.sw-touchswipe.sw-dragging .sw-list {
+	cursor: url(../images/sw-grabbing.png), move;
+}
+
+
+/* Error Message
+============================================================== */
+
+.sw-error {
+	cursor: default!important;
+}
+
+.sw-error-notice {
+	height: 100px;
+	line-height: 100px;
+	border: 1px solid #eee;
+	text-align: center;
+	color: #aaa;
+}
+
+
+/* Rotation Shadows
+============================================================== */
+
+.sw-shadow-left,
+.sw-shadow-right {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 35px;
+	visibility: hidden;
+} 
+
+.sw-images-loaded .sw-shadow-left,
+.sw-images-loaded .sw-shadow-right {
+	visibility: visible;
+}
+
+.sw-shadow-left {
+	top: 0;
+	left: 0; 
+	background: url(../images/sw-shadow.png) repeat-y 0 0;
+}
+
+.sw-shadow-right {
+	top: 0;
+	right: 0;
+	background: url(../images/sw-shadow.png) repeat-y -35px 0;
+}
+
+/* make shadows thiner on mobiles */
+@media only screen and (max-width: 480px) {
+	.sw-shadow-left { width: 15px; background: url(../images/sw-shadow.png) repeat-y -20px 0; }
+	.sw-shadow-right { width: 15px; background: url(../images/sw-shadow.png) repeat-y -35px 0; }
+
+}
+
+
+/* Navigation Controls
+============================================================== */
+
+.sw-has-navigation {
+	padding-top: 50px!important;
+}
+
+.sw-navigation {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	z-index: 500;
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.sw-navigation a {
+	float: left;
+	width: 32px;
+	height: 32px;
+	background-color: #555;
+	text-indent: -9999px;
+	line-height: 0;
+	padding: 1px;
+	margin-right: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: background-color .2s;
+	-moz-transition: background-color .2s;
+	-o-transition: background-color .2s;
+	transition: background-color .2s;
+}
+
+.sw-navigation a:hover {
+	background-color: #2E9979;
+	box-shadow: inset 0 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.sw-navigation a.sw-disabled {
+	background-color: #555;
+	cursor: default;
+	box-shadow: none;
+	opacity: 0.5;
+}
+
+.sw-navigation a span {
+	display: block;
+	width: 32px;
+	height: 32px;
+}
+
+.sw-navigation a.sw-prev span {
+	background: url(../images/sw-controls.png) no-repeat 0 -32px;
+}
+
+.sw-navigation a.sw-next span {
+	background: url(../images/sw-controls.png) no-repeat 0 0;
+}
+
+@media /* Retina */
+only screen and (-webkit-min-device-pixel-ratio: 2), 
+only screen and (min-resolution: 192dpi) { 
+	
+	.sw-navigation a.sw-prev span {
+		background: url(../images/sw-controls@2x.png) no-repeat 0 -32px;
+		background-size: 32px 128px;
+	}
+	
+	.sw-navigation a.sw-next span {
+		background: url(../images/sw-controls@2x.png) no-repeat 0 0;
+		background-size: 32px 128px;
+	}
+
+}
+
+
+/* Pagination Controls
+============================================================== */
+
+.sw-has-pagination { 
+	padding-top: 30px;
+}
+
+.sw-pagination {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 500;
+}
+
+.sw-has-navigation .sw-pagination {
+	top: 20px;
+}
+
+.sw-pagination li {
+	float: left;
+	padding: 0;
+	margin: 0 5px 0 0;
+	list-style: none!important;
+}
+
+.sw-pagination li a {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.sw-pagination li span {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	vertical-align: middle;
+	background-color: #ddd;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	text-indent: -9999px;
+	-webkit-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	box-shadow: inset 0 1px 0 #bbb;
+}
+
+.sw-pagination li.sw-active-bullet span {
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #2E9979;	
+	box-shadow: none;
+}
+
+.sw-center-pagination .sw-pagination {
+    left: 50%;
+    right: auto;
+}
+
+.sw-center-pagination .sw-pagination li {
+    position: relative;
+    left: -50%;
+}
+
+.sw-has-navigation .sw-pagination {
+	left: 0; 
+	right: auto;
+}
+
+
+/* Scrollbar Controls
+============================================================== */
+
+.sw-has-scrollbar {
+	padding-bottom: 20px;
+}
+
+.sw-scrollbar {
+	position: relative;
+	top: 15px;
+	width: 100%;
+	clear: both;
+}
+
+.sw-scrollbar .sw-path,
+.sw-scrollbar .sw-handle {
+	height: 6px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.sw-scrollbar .sw-path {
+	width: 100%;
+	background-color: #eee;
+	box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.sw-scrollbar .sw-handle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 10%;
+	background-color: #555;
+	cursor: pointer;
+}
+
+
+.sw-scrollbar .sw-handle.sw-handle-transit {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.sw-scrollbar .sw-handle:hover,
+.sw-scrollbar-dragging .sw-scrollbar .sw-handle  {
+	background-color: #2E9979;
+}
+
+
+/* Autoplay Controls
+============================================================== */
+
+.sw-autoplay {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	z-index: 500;
+	-webkit-transform: translate3d(0,0,0);
+} 
+
+.sw-autoplay a {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-color: #555;
+	text-indent: -9999px;
+	line-height: 0;
+	padding: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: background-color .2s;
+	-moz-transition: background-color .2s;
+	-o-transition: background-color .2s;
+	transition: background-color .2s;
+}
+
+.sw-autoplay a:hover {
+	background-color: #2E9979;
+	box-shadow: inset 0 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.sw-autoplay a span {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/sw-controls.png) no-repeat 0 -64px;
+}
+
+.sw-autoplay-stopped a span {
+	background: url(../images/sw-controls.png) no-repeat 0 -96px;
+}
+
+@media /* Retina */
+only screen and (-webkit-min-device-pixel-ratio: 2), 
+only screen and (min-resolution: 192dpi) { 
+	
+	.sw-autoplay a span {
+		background: url(../images/sw-controls@2x.png) no-repeat 0 -64px;
+		background-size: 32px 128px;
+	}
+	
+	.sw-autoplay-stopped a span {
+		background: url(../images/sw-controls@2x.png) no-repeat 0 -96px;
+		background-size: 32px 128px;
+	}
+
+}
+
+
+/* Progress Indicator
+============================================================== */
+
+.sw-autoplay-progress {
+	position: absolute;
+	display: none;
+	right: 15px;
+	bottom: 15px;	
+	width: 26px;
+	height: 26px;
+	background-color: rgba(255,255,255,0.4);
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	cursor: pointer;
+}
+
+.sw-progress {
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 20px;
+	border: 3px solid transparent;
+}
+
+.sw-progress .sw-segments {
+	position: absolute;
+	top: 0; 
+	left: 0;
+	width: 100%;
+	height: 100%;
+	clip: rect(0px, 20px, 20px, 10px);
+	opacity: 0.5;
+}
+
+.sw-progress .sw-segments div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 4px solid #111;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	clip: rect(0px, 10px, 20px, 0px);
+}
+
+.sw-progress div {
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	-moz-animation-fill-mode: forwards;
+	-o-animation-iteration-count: 1;
+	-o-animation-timing-function: linear;
+	-o-animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes segments-clip { 
+	to { clip: rect(0px, 20px, 20px, 0px); }
+}
+@-moz-keyframes segments-clip { 
+	to { clip: rect(0px, 20px, 20px, 0px); }
+}
+@-o-keyframes segments-clip { 
+	to { clip: rect(0px, 20px, 20px, 0px); }
+}
+@keyframes segments-clip { 
+	to { clip: rect(0px, 20px, 20px, 0px); }
+}
+
+
+@-webkit-keyframes shape-right-rotate {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(180deg); }
+}
+@-webkit-keyframes shape-left-rotate {
+	from { -webkit-transform: rotate(180deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes shape-right-rotate {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(180deg); }
+}
+@-moz-keyframes shape-left-rotate {
+	from { -moz-transform: rotate(180deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes shape-right-rotate {
+	from { -o-transform: rotate(0deg); }
+	to { -o-transform: rotate(180deg); }
+}
+@-o-keyframes shape-left-rotate {
+	from { -o-transform: rotate(180deg); }
+	to { -o-transform: rotate(360deg); }
+}
+
+@keyframes shape-right-rotate {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(180deg); }
+}
+@keyframes shape-left-rotate {
+	from { transform: rotate(180deg); }
+	to { transform: rotate(360deg); }
+}
+
+
+/* Item Content
+============================================================== */
+
+.sw-content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.sw-content img {
+	display: block;
+	border: 0;
+	margin: 0;
+	width: 100%;
+	height: auto;
+}
+
+.sw-content img[data-src] {
+	display: none;
+}
+
+
+/* Adjustmemts 
+============================================================== */
+
+/* This is like media queries but we use visible items class 
+   "sw-visible-{n}" to make adjustments */
+ 
+.sw-visible-1.sw-has-navigation,
+.sw-visible-1.sw-has-pagination  {
+	padding-top: 0!important;
+}
+
+.sw-visible-1 .sw-navigation {
+	right: 10px;
+	top: 15px;
+}
+
+.sw-visible-1 .sw-pagination {
+	position: relative;
+	padding: 10px 20px;
+	text-align: center;
+	clear: both;
+	top: 0;
+}
+
+.sw-visible-1 .sw-pagination li {
+	float: none;
+	display: inline-block;
+}
+
+.sw-visible-1 .sw-autoplay {
+	position: relative;
+	float: left;
+	clear: both;
+	margin-top: -34px;
+}
+
+.sw-visible-1 .sw-autoplay-progress {
+	position: relative;
+	float: right;
+	clear: both;
+	margin-top: -29px;
+} 

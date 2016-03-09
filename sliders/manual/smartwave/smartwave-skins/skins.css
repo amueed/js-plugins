@@ -1,0 +1,654 @@
+﻿/* 
+ * SmartWave - jQuery Content Carousel Plugin
+ * Skins
+*/
+
+
+/* Reset */
+
+.smartwave[class*="sw-skin"] .sw-caption * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    outline: none;
+}
+
+
+/* Share & Social
+
+	HTML:
+	
+	<div class="sw-share">
+		<a class=sw-deviantart></a>
+		<a class=sw-dribbble></a>
+		<a class=sw-facebook></a>
+		<a class=sw-feed></a>
+		<a class=sw-flickr></a>
+		<a class=sw-google-plus></a>
+		<a class=sw-image></a>
+		<a class=sw-link></a>
+		<a class=sw-menu></a>
+		<a class=sw-picassa></a>
+		<a class=sw-pinterest></a>
+		<a class=sw-play></a>
+		<a class=sw-plus></a>
+		<a class=sw-search></a>
+		<a class=sw-share></a>
+		<a class=sw-twitter></a>
+		<a class=sw-vimeo></a>
+		<a class=sw-youtube></a>
+	</div>
+	
+	
+============================================================== */
+
+.sw-content .sw-share {
+    text-align: left;
+}
+
+.sw-content > .sw-share {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -16px;
+    z-index: 10;
+    text-align: center;
+}
+
+.sw-content .sw-share a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 0 8px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.6);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+    .sw-content .sw-share a:hover {
+        background-color: #eee;
+        background-color: rgba(255,255,255,0.9);
+    }
+
+.sw-share .sw-deviantart {
+    background: url(icons/deviantart.png);
+    background: url(icons/deviantart.svg), none;
+}
+
+.sw-share .sw-dribbble {
+    background: url(icons/dribbble.png);
+    background: url(icons/dribbble.svg), none;
+}
+
+.sw-share .sw-facebook {
+    background: url(icons/facebook.png);
+    background: url(icons/facebook.svg), none;
+}
+
+.sw-share .sw-feed {
+    background: url(icons/feed.png);
+    background: url(icons/feed.svg), none;
+}
+
+.sw-share .sw-flickr {
+    background: url(icons/flickr.png);
+    background: url(icons/flickr.svg), none;
+}
+
+.sw-share .sw-google-plus {
+    background: url(icons/google-plus.png);
+    background: url(icons/google-plus.svg), none;
+}
+
+.sw-share .sw-image {
+    background: url(icons/image.png);
+    background: url(icons/image.svg), none;
+}
+
+.sw-share .sw-link {
+    background: url(icons/link.png);
+    background: url(icons/link.svg), none;
+}
+
+.sw-share .sw-menu {
+    background: url(icons/menu.png);
+    background: url(icons/menu.svg), none;
+}
+
+.sw-share .sw-picassa {
+    background: url(icons/picassa.png);
+    background: url(icons/picassa.svg), none;
+}
+
+.sw-share .sw-pinterest {
+    background: url(icons/pinterest.png);
+    background: url(icons/pinterest.svg), none;
+}
+
+.sw-share .sw-play {
+    background: url(icons/play.png);
+    background: url(icons/play.svg), none;
+}
+
+.sw-share .sw-plus {
+    background: url(icons/plus.png);
+    background: url(icons/plus.svg), none;
+}
+
+.sw-share .sw-search {
+    background: url(icons/search.png);
+    background: url(icons/search.svg), none;
+}
+
+.sw-share .sw-share {
+    background: url(icons/share.png);
+    background: url(icons/share.svg), none;
+}
+
+.sw-share .sw-twitter {
+    background: url(icons/twitter.png);
+    background: url(icons/twitter.svg), none;
+}
+
+.sw-share .sw-vimeo {
+    background: url(icons/vimeo.png);
+    background: url(icons/vimeo.svg), none;
+}
+
+.sw-share .sw-youtube {
+    background: url(icons/youtube.png);
+    background: url(icons/youtube.svg), none;
+}
+
+
+
+/* Skin #1
+
+	Use this HTML for an item
+	
+	<li>
+		<div class="sw-content">
+			<div class="sw-clip">
+				<img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+			</div>
+			<div class="sw-caption">
+				<h4><a href="#">Title Here</a></h4>
+				<p>Subtitle for this item</p>
+			</div>
+		</div>
+	</li>
+
+============================================================== */
+
+
+.sw-skin1 .sw-images-loaded .sw-content {
+    display: table;
+    background-color: #555;
+}
+
+.sw-skin1 .sw-clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sw-skin1 .sw-content .sw-clip img {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.sw-skin1 .sw-content .sw-caption {
+    display: table-cell;
+    position: relative;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 20px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s, visibility 0s linear 0.3s;
+    -moz-transition: opacity 0.3s, visibility 0s linear 0.3s;
+    -o-transition: opacity 0.3s, visibility 0s linear 0.3s;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+    .sw-skin1 .sw-content .sw-caption h4 {
+        color: #fff;
+        font-size: 170%;
+        line-height: 1.2em;
+    }
+
+    .sw-skin1 .sw-content .sw-caption p {
+        margin: 10px 0 0;
+        color: #ddd;
+        line-height: 1.2em;
+        font-size: 85%;
+        text-transform: uppercase;
+    }
+
+    .sw-skin1 .sw-content .sw-caption h4 a {
+        color: inherit;
+    }
+
+        .sw-skin1 .sw-content .sw-caption h4 a:hover {
+            text-decoration: underline;
+        }
+
+.sw-skin1 .sw-active .sw-caption {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.sw-skin1 .sw-active .sw-clip img {
+    opacity: 0.5;
+    -webkit-transform: scale(2.5);
+    -moz-transform: scale(2.5);
+    -o-transform: scale(2.5);
+    transform: scale(2.5);
+}
+
+
+/* Skin 2
+
+	Use this HTML for an item
+	
+	<li>
+		<div class="sw-content">
+			<img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+			<div class="sw-caption">
+				<h4><a href="#">Title Here</a></h4>
+			</div>
+		</div>
+	</li>
+
+============================================================== */
+
+.sw-skin2 .sw-navigation {
+    margin-right: 10px;
+}
+
+.sw-skin2 .sw-content {
+    padding-right: 10px;
+    margin-left: 2px;
+}
+
+    .sw-skin2 .sw-content > img {
+        opacity: 0.8;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .sw-skin2 .sw-content .sw-caption {
+        position: absolute;
+        left: 30px;
+        bottom: 0;
+        padding-right: 40px;
+        font-size: 14px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+        .sw-skin2 .sw-content .sw-caption h4 {
+            display: inline;
+            margin: 0;
+            color: #555;
+            font-size: 130%;
+            line-height: 1.35em;
+            background-color: #fff;
+            background-color: rgba(255,255,255,0.8);
+            box-shadow: -10px 0 0 0 rgba(255,255,255,0.8), 10px 0 0 0 rgba(255,255,255,0.8);
+            box-decoration-break: clone; /* fix FF */
+        }
+
+            .sw-skin2 .sw-content .sw-caption h4 a {
+                color: #555;
+            }
+
+        .sw-skin2 .sw-content .sw-caption,
+        .sw-skin2 .sw-content .sw-caption h4,
+        .sw-skin2 .sw-content .sw-caption img {
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+.sw-skin2 .sw-images-loaded .sw-caption {
+    bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.sw-skin2 .sw-active .sw-caption h4 {
+    color: #fff;
+    background-color: #eb4d4d;
+    background-color: rgba(235, 77, 77, 0.8);
+    box-shadow: -10px 0 0 0 rgba(235, 77, 77, 0.8), 10px 0 0 0 rgba(235, 77, 77, 0.8);
+}
+
+    .sw-skin2 .sw-active .sw-caption h4 a {
+        color: #fff;
+    }
+
+.sw-skin2 .sw-active img {
+    opacity: 1;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+
+/* Skin 3
+	
+	Use this HTML for an item
+	
+	<li>
+		<div class="sw-content">
+			<img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+			<div class="sw-caption">
+				<h4><a href="#">Title Here</a></h4>
+				<p><time>Mar 03, 2015</time></p>
+			</div>
+		</div>
+	</li>
+
+============================================================== */
+
+.sw-skin3 .sw-content .sw-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 20px 20px;
+    text-align: center;
+    font-size: 14px;
+    visibility: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    margin-bottom: -50px;
+    background: rgba(0,0,0,0.4);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.8)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.sw-skin3 .sw-images-loaded .sw-caption {
+    visibility: visible;
+}
+
+.sw-skin3 .sw-content .sw-caption h4 {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    color: #eee;
+    font-size: 130%;
+    line-height: 1.2em;
+    text-shadow: -1px 0 0 rgba(0,0,0,0.1);
+}
+
+    .sw-skin3 .sw-content .sw-caption h4:after {
+        position: absolute;
+        content: "";
+        left: 50%;
+        margin-left: -10px;
+        bottom: 0;
+        width: 20px;
+        height: 4px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        background-color: #eb4d4d;
+        opacity: 0;
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+    }
+
+.sw-skin3 .sw-active .sw-content h4:after {
+    opacity: 1;
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.sw-skin3 .sw-content .sw-caption p {
+    margin-bottom: 0;
+    color: #aaa;
+    font-size: 75%;
+    font-style: italic;
+    line-height: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.sw-skin3 .sw-content .sw-caption h4 a {
+    color: inherit;
+}
+
+.sw-skin3 .sw-active .sw-caption {
+    margin-bottom: 0;
+}
+
+/* adjust font size if two or one item are visible */
+.sw-skin3.sw-visible-1 .sw-caption,
+.sw-skin3.sw-visible-2 .sw-caption {
+    font-size: 12px;
+}
+
+
+/* Skin 4
+
+	Use this HTML for an item
+	
+	<li>
+		<div class="sw-content">
+			<a href="pics/1.jpg" target="_blank">
+				<img src="pics/blank.png" data-src="pics/1.jpg" alt="">
+			</a>							
+			<div class="sw-caption">
+				<h4><a href="#">Title Here</a></h4>
+				<p>Subtitle for this item</p>
+			</div>
+			
+		</div>
+	</li>
+
+============================================================== */
+
+.sw-skin4 .sw-content {
+    padding: 0 5px;
+    background-color: #fff;
+}
+
+.sw-skin4 .sw-images-loaded .sw-content > a {
+    display: block;
+    background: url(icons/plus.png);
+    background: url(icons/plus.svg), none;
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.sw-skin4 .sw-content img {
+    opacity: 0.7;
+}
+
+.sw-skin4 .sw-content .sw-caption {
+    font-size: 14px;
+    padding: 20px;
+    visibility: hidden;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.sw-skin4 .sw-images-loaded .sw-caption {
+    visibility: visible;
+}
+
+.sw-skin4 .sw-content .sw-caption h4 {
+    color: #bbb;
+    font-size: 150%;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sw-skin4 .sw-content .sw-caption p {
+    color: #444;
+}
+
+.sw-skin4 .sw-content .sw-caption h4 a {
+    color: inherit;
+}
+
+.sw-skin4 .sw-content .sw-caption,
+.sw-skin4 .sw-content img {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.sw-skin4 .sw-active .sw-caption {
+    background-color: #36B38D;
+    border-bottom-color: #2F9677;
+}
+
+    .sw-skin4 .sw-active .sw-caption h4 {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+.sw-skin4 .sw-active .sw-content img {
+    opacity: 1;
+}
+
+
+/*  Skin 5
+
+	Use this HTML for an item
+	
+	<li>
+		<div class="sw-content">
+			<img src="pics/blank.png" data-src="pics/1.jpg" alt="">			
+			<div class="sw-caption">
+				<h4><a href="#">Title Here</a></h4>
+				<p>Subtitle for this item</p>
+				<div class="sw-share">
+					<a href="#" class="sw-facebook"></a>
+					<a href="#" class="sw-twitter"></a>
+					<a href="#" class="sw-link"></a>
+				</div>
+			</div>
+		</div>
+	</li>
+
+============================================================== */
+
+.sw-skin5 .sw-content {
+    padding: 0 5px;
+}
+
+    .sw-skin5 .sw-content .sw-caption {
+        padding: 20px 20px 5px;
+        font-size: 14px;
+        text-align: center;
+        visibility: hidden;
+        background-color: #fff;
+    }
+
+.sw-skin5 .sw-images-loaded .sw-caption {
+    visibility: visible;
+}
+
+.sw-skin5 .sw-content .sw-share {
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    opacity: 0.1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+    .sw-skin5 .sw-content .sw-share > a {
+        background-color: transparent;
+    }
+
+.sw-skin5 .sw-active .sw-content .sw-share {
+    margin-top: 0;
+    opacity: 1;
+}
+
+.sw-skin5 .sw-content .sw-caption h4 {
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 150%;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+    .sw-skin5 .sw-content .sw-caption h4 a {
+        color: inherit;
+    }
+
+        .sw-skin5 .sw-content .sw-caption h4 a:hover {
+            color: #ccc;
+        }
+
+.sw-skin5 .sw-content .sw-caption p {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.sw-skin5.sw-visible-1 .sw-caption {
+    font-size: 13px;
+}

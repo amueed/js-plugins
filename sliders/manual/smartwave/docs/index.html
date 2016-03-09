@@ -1,0 +1,501 @@
+﻿<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>SmartWave - jQuery Content Carousel Plugin | Documentation</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/SyntaxHighlighter.css"></link>
+    <script language="javascript" src="js/shCore.js"></script>
+    <script language="javascript" src="js/shBrushCSharp.js"></script>
+    <script language="javascript" src="js/shBrushJScript.js"></script>
+    <script language="javascript" src="js/shBrushCss.js"></script>
+    <script language="javascript" src="js/shBrushXml.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            dp.SyntaxHighlighter.ClipboardSwf = 'js/clipboard.swf';
+            dp.SyntaxHighlighter.HighlightAll('code');
+        });
+    </script>
+</head>
+<body>
+    <div class="center-wrapper">
+
+
+        <!-------------- HEADER -------------->
+
+        <div class="header">
+            <h1>SmartWave - jQuery Content Carousel Plugin</h1>
+            <p>You just purchased <strong>SmartWave</strong>! If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/flGravity">here</a></p>
+            <p class="right"><em>Thank you. flGravity</em></p>
+            <br class="clear">
+        </div>
+
+        <div class="clear"></div>
+
+        <!---------------- TABLE OF CONTENTS ---------------->
+
+        <div class="contents">
+            <h3 class="contents-header">Documentation</h3>
+            <ul class="menu">
+                <li><a href="#s1">1. About</a></li>
+                <li><a href="#s2">2. Installation</a></li>
+                <li><a href="#s3">3. Options</a></li>
+                <li><a href="#s4">4. API</a></li>
+                <li><a href="#s5">5. Helper Classes</a></li>
+                <li><a href="#s6">6. Skins</a></li>
+            </ul>
+            <a class="demo" href="../index.html">&larr; Back to Demo</a>
+        </div>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s1">1. About</h2>
+
+        <p><strong>SmartWave</strong> is a smart content carousel plugin with a lot of great and unique features! </p>
+
+        <p>Along with smooth CSS3 hardware-accelerated scroll, retina-ready controls and ability to work in almost any browser, starting with IE8 up to iOS/Android touchscreens, with <strong>SmartWave</strong> plugin you also get these nice features - ability to rotate items in perspective by any degree, scroll-dependent rotation, intelligent resize, lazy loading of images for items  and finally two scroll modes. </p>
+
+        <p><strong>SmartWave</strong> also can recognize user interaction with carousel items on desktop (mouse hover) or touchscreen (tap) by providing corresponding helper classes and callbacks. This will help you incorporate various CSS3 animations into items and be sure they will execute on any device! </p>
+
+        <p>Also <strong>SmartWave</strong> comes with 5 pixel perfect skins for your quick start! </p>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s2">2. Installation</h2>
+
+        <p>To install <strong>SmartWave</strong> jQuery plugin first thing you should copy few files from ZIP package that you have downloaded from Codecanyon to the corresponding folders under your site. </p>
+
+        <p>So the files are</p>
+
+        <code>
+            js/jquery.smartwave.min.js
+            css/smartwave.css
+            images/sw-controls.png
+            images/sw-controls@2x.png
+            images/sw-grab.png
+            images/sw-grabbing.png
+            images/sw-preload.gif
+            images/sw-shadow.png
+        </code>
+
+        <p>also copy 3rd-party scripts </p>
+
+        <code>
+            js/jquery.easing.1.3.js
+            js/jquery.hoverIntent.min.js
+            js/jquery.mousewheel.min.js
+        </code>
+
+        <p>When you finish copying files you should link them in head of your page. Here is what you should insert</p>
+
+<pre name="code" class="html">
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/smartwave.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.easing.1.3.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.mousewheel.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.hoverIntent.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.smartwave.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+        <p>Also make sure that you have jQuery library included before any of JS files above. You may get latest jQuery from here - <a href="https://jquery.com/download/" target="_blank">https://jquery.com/download/</a></p>
+
+        <p>Basic HTML markup for <strong>SmartWave</strong> carousel should look like so</p>
+
+
+<pre name="code" class="html">
+&lt;div id=&quot;sw1&quot; class=&quot;smartwave&quot;&gt;
+	&lt;ul class=&quot;sw-list&quot;&gt;
+		&lt;li&gt;
+			&lt;div class=&quot;sw-content&quot;&gt;
+				&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;div class=&quot;sw-content&quot;&gt;
+				&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/2.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;div class=&quot;sw-content&quot;&gt;
+				&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/3.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		
+		&#x2026;
+		
+		&lt;li&gt;
+			&lt;div class=&quot;sw-content&quot;&gt;
+				&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/N.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+		
+	&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+        <p>You can add as many LI items as you need. The markup above is for simple image carousel. If you would like to use any of predefined skins, please refer to section <a href="#s6">"6. Skins"</a> for respective markup.</p>
+
+        <p>You may be curious why images have "data-src=" attribute. Well, this is part of "Lazy Loading" which is enabled in plugin by default. When you specify image as</p>
+
+<pre name="code" class="html">
+&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/3.jpg&quot; alt=&quot;&quot;&gt;
+</pre>
+
+        <p>browser will load "pics/blank.png" that is 4KB and takes no bandwidth. Whereas real image "pics/3.jpg" will be loaded only when it's needed. You can find "blank.png" in pics/ folder and use with your images.</p>
+
+        <p>Ok! When markup is ready it's time to add plugin init code</p>
+
+<pre name="code" class="js">
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function(){
+		$('#sw1').smartwave({
+			itemRatio: 1.6,
+			itemMinWidth: 200,
+			itemMaxWidth: 400,
+			visible: 3
+		});
+	});
+&lt;/script&gt;
+</pre>
+
+        <p>and make sure that you inserted this JS code after the a line that links "js/jquery.smartwave.min.js"</p>
+
+        <p>Now it's time to add some options!</p>
+
+        <p>The first option is called "itemRatio" and it defines aspect ratio for carousel items. By default it's 1 and it will make items square. It's fine if your images are square as well! But if they are not, you will have to set correct "itemRatio". For example, if you have landscape photos and their size is 800x500 pixels, value for "itemRatio" should be 1.6 (800/500 = 1.6). Also you can disable "itemRatio" by setting it to false. In this case items height will be "auto".</p>
+
+        <p>Next two options are "itemMinWidth" and "itemMaxWidth". These options set allowed range for item width. So, when you resize browser window, plugin will change items width in respect to these values.</p>
+
+        <p>Another option that relates to previous two is called "visible". It tells plugin how many items to show, and by default it's 4.</p>
+
+        <p>By using these options, plugin will attempt to display "visible" number of items and adjust items width to be within min/max range.</p>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s3">3. Options</h2>
+
+        <p>Below is a list with plugin options and callbacks that you can use with <strong>SmartWave</strong></p>
+
+<pre name="code" class="js">
+// default options
+var defaults = $.extend({
+	css3: true,						// use CSS3 transitions
+	duration: 500,					// carousel scroll duration, ms
+	easing: 'swing',				// carousel scroll easing
+	visible: 4,						// how many items should be visible
+	startAt: 0,						// item to start with, zero-based index
+	itemMinWidth: 200,				// min item width, px
+	itemMaxWidth: 400,				// max item width, px
+	itemRatio: 1,					// item's aspect ratio or false for "auto"
+	lazyLoadImages: true,			// load images only when they appear in viewport
+	snap: false,					// enable "snap" scroll mode
+	snapByOne: true,				// snap by one, or snap all visible items at once
+	snapThreshold: 20,				// snap threshold, px
+	rotate: false,					// enable items rotation
+	rotateAngle: 7,					// items rotation angle, degree
+	rotateNogaps: false,			// collapse gaps between rotated items
+	rotateShadows: true,			// show shadows when items rotate
+	rotateDuration: 300,			// items rotation duration, ms
+	rotateEasing: 'swing',			// items rotation easing
+	autoplay: false,				// enable autoplay
+	autoplayDelay: 2000,			// autoplay delay, ms 
+	autoplayAutoStart: true,		// start autoplay on plugin init
+	autoplayPauseHover: false,		// pause autoplay on mousehover (if available uses "hoverIntent")
+	autoplayProgress: true,			// show progress indicator
+	touchswipe: true,				// enable touchswipe
+	swipeInertia: 0.25,				// the lower the number the more inertia is given to swipe (0 - 1)
+	mousewheel: true,				// enable mousewheel (requires js/jquery.mousewheel.min.js)
+	keyboard: false,				// enable keyboard
+	navigation: true,				// show next/prev navigation controls
+	pagination: true,				// show pagination controls
+	scrollbar: false,				// show scrollbar controls
+	onReady: function(){},			// ready callback (plugin API object as argument)
+	onAutoplay: function(){},		// autoplay start/stop callback (status as argument)
+	onMoveStart: function(){},		// move start callback (array of items that were visible)
+	onMoveEnd: function(){},		// move end callback (array of items that became visible)
+	onRotateStart: function(){},	// rotation start callback (direction of rotation as argument)
+	onRotateEnd: function(){},		// rotation end callback
+	onActivateItem: function(){},	// item activate callback, e.g on touch or hover (item DOM as argument)
+	onDeactivateItem: function(){},	// item deactivate callback (item DOM as argument)
+	onPreloadImages: function(){},	// images preload callback (item DOM as argument)
+	onResize: function(){}			// resize callaback
+}, options);
+</pre>
+
+        <p>Please note that inside of every callback function keyword "this" refers to <strong>SmartWave</strong> container DOM element. Also if function accept arguments it's mentioned in () comments above.</p>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s4">4. API</h2>
+
+        <p><strong>SmartWave</strong> plugin provides next API methods </p>
+
+        <ul class="code">
+            <li>moveTo(index) - method to move to item by its index (zero-based)</li>
+            <li>moveNext() - method to move one item forward</li>
+            <li>movePrevious() - method to move one item backward</li>
+            <li>moveRaw(amount) - method to move carousel by some amount, from 0 to 1</li>
+            <li>isAutoplayStopped() - returns true if autoplay is stopped, otherwise false</li>
+            <li>stopAutoplay() - method to stop autoplay</li>
+            <li>startAutoplay() - method to start autoplay</li>
+            <li>refresh() - method to force carousel to recalculate widths and visible number of items</li>
+            <li>getVisible() - returns jQuery object containing visible items</li>
+        </ul>
+
+        <p>These methods should be called via <strong>SmartWave</strong> API object which you can get with $.data('smartwave-api'). Here is, for example, how you can scroll to 3rd item using moveTo()</p>
+
+<pre name="code" class="js">
+var sw_api = $('sw1').data('smartwave-api');
+sw_api.moveTo(2);
+</pre>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s5">5. Helper Classes</h2>
+
+        <p>For styling or other purposes <strong>SmartWave</strong> provides a set of helper classes that you can find below. </p>
+
+        <p><strong>Classes for <strong>SmartWave</strong> container:</strong></p>
+
+        <ul class="code">
+            <li>sw-dragging - on touch device or when you drag with mouse after 5px threshold</li>
+            <li>sw-swiping - when plugin detects swipe gesture class is added before swiping transition begins</li>
+            <li>sw-rotate-right, sw-rotate-left - correspond to direction of rotation</li>
+            <li>sw-rotation - class is added when items start rotating</li>
+            <li>sw-snapping - class is added when snap transition begins ("snap" scroll mode should be enabled)</li>
+            <li>sw-ready - is added when carousel is ready (with 200ms delay)</li>
+            <li>sw-error - is added when there is not enough items in carousel to display properly</li>
+            <li>sw-visible-{n} - this class corresponds to the number of currently visible items "n"</li>
+            <li>sw-no-css3 - is added when plugin cannot detect CSS3 support or when css3 option is false</li>
+            <li>sw-auto-height - is added when itemRatio option is false (all items have "auto" height)</li>
+            <li>sw-touchswipe - is added when touch swipe option is enabled</li>
+            <li>sw-mousewheel -  is added when mouse wheel option is enabled</li>
+            <li>sw-has-navigation - is added when navigation option is enabled</li>
+            <li>sw-has-pagination - is added when pagination option is enabled</li>
+            <li>sw-has-autoplay - is added when autoplay option is enabled</li>
+        </ul>
+
+        <p><strong>Classes for carousel items:</strong></p>
+
+        <ul class="code">
+            <li>sw-images-loaded - is added to carousel &lt;LI&gt; item when all images for that item have been loaded</li>
+            <li>sw-skip-preload - this class can be manually added to item to skip image preloading</li>
+            <li>sw-active - is added to &lt;LI&gt; item when user interacts with it (see below)</li>
+        </ul>
+
+        <p>Particularly useful can be "sw-active" class. This class is assigned to the item when user moves mouse pointer over it on desktop, or taps item on touch device. You should use this class instead of ":hover" if you want to add CSS3 animations to the items. Relying on "sw-active" will ensure that your animations will work on any device!</p>
+
+        <p>Also, if you need to run custom JS code, you can use "onActivateItem()" and "onDeactivateItem()" callbacks, that accept item DOM as argument.</p>
+
+
+        <!-------------- SECTION --------------->
+
+
+        <h2 id="s6">6. Skins</h2>
+
+        <p><strong>SmartWave</strong> plugin comes with 5 bonus skins to help you start quickly! To attach skins you should copy "smartwave-skins/" directory to the root of your site. Then in head of your page link "smartwave-skins/skins.css" (make sure you do this after "css/smartwave.css")</p>
+
+<pre name="code" class="html">
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;smartwave-skins/skins.css&quot;&gt;
+</pre>
+
+        <p>When it's done, add markup for carousel</p>
+
+<pre name="code" class="html">
+&lt;div id=&quot;sw1&quot; class=&quot;smartwave sw-skin1&quot;&gt;
+	&lt;ul class=&quot;sw-list&quot;&gt;
+		&lt;!-- skin specific LI items shortly will be here --&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+        <p>Please note that next to "smartwave" class there is "sw-skin1" class. You should add this class to enable "Skin 1". For other skins you will add classes "sw-skin2", "sw-skin3", etc. Also at this moment there is no LI items in markup above. That's because every skin has slightly different markup, see below</p>
+
+        <h4>"Skin 1"</h4>
+
+        <img class="screenshot" src="screenshots/skin1.png" alt="Skin 1">
+
+<pre name="code" class="html">
+&lt;li&gt;
+	&lt;div class=&quot;sw-content&quot;&gt;
+		&lt;div class=&quot;sw-clip&quot;&gt;
+			&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sw-caption&quot;&gt;
+			&lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Title Here&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Subtitle for this item&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/li&gt;
+</pre>
+
+        <br>
+        <h4>"Skin 2"</h4>
+
+        <img class="screenshot" src="screenshots/skin2.png" alt="Skin 2">
+
+<pre name="code" class="html">
+&lt;li&gt;
+	&lt;div class=&quot;sw-content&quot;&gt;
+		&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;
+		&lt;div class=&quot;sw-caption&quot;&gt;
+			&lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Title Here&lt;/a&gt;&lt;/h4&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/li&gt;
+</pre>
+
+        <br>
+        <h4>"Skin 3"</h4>
+
+        <img class="screenshot" src="screenshots/skin3.png" alt="Skin 3">
+
+<pre name="code" class="html">
+&lt;li&gt;
+	&lt;div class=&quot;sw-content&quot;&gt;
+		&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;
+		&lt;div class=&quot;sw-caption&quot;&gt;
+			&lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Title Here&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;&lt;time&gt;Mar 03, 2015&lt;/time&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/li&gt;
+</pre>
+
+        <br>
+        <h4>"Skin 4"</h4>
+
+        <img class="screenshot" src="screenshots/skin4.png" alt="Skin 4">
+
+<pre name="code" class="html">
+&lt;li&gt;
+	&lt;div class=&quot;sw-content&quot;&gt;
+		&lt;a href=&quot;pics/1.jpg&quot; target=&quot;_blank&quot;&gt;
+			&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;
+		&lt;/a&gt;							
+		&lt;div class=&quot;sw-caption&quot;&gt;
+			&lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Title Here&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Subtitle for this item&lt;/p&gt;
+		&lt;/div&gt;
+		
+	&lt;/div&gt;
+&lt;/li&gt;
+</pre>
+
+        <br>
+        <h4>"Skin 5"</h4>
+
+        <img class="screenshot" src="screenshots/skin5.png" alt="Skin 5">
+
+<pre name="code" class="html">
+&lt;li&gt;
+	&lt;div class=&quot;sw-content&quot;&gt;
+		&lt;img src=&quot;pics/blank.png&quot; data-src=&quot;pics/1.jpg&quot; alt=&quot;&quot;&gt;			
+		&lt;div class=&quot;sw-caption&quot;&gt;
+			&lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Title Here&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Subtitle for this item&lt;/p&gt;
+			&lt;div class=&quot;sw-share&quot;&gt;
+				&lt;a href=&quot;#&quot; class=&quot;sw-facebook&quot;&gt;&lt;/a&gt;
+				&lt;a href=&quot;#&quot; class=&quot;sw-twitter&quot;&gt;&lt;/a&gt;
+				&lt;a href=&quot;#&quot; class=&quot;sw-link&quot;&gt;&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/li&gt;
+</pre>
+
+        <p>In "sw-share" DIV you can have following social/share links</p>
+
+<pre name="code" class="html">
+&lt;div class=&quot;sw-share&quot;&quot;&gt;
+	&lt;a class=&quot;sw-deviantart&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-dribbble&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-facebook&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-feed&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-flickr&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-google-plus&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-image&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-link&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-menu&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-picassa&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-pinterest&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-play&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-plus&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-search&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-share&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-twitter&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-vimeo&quot;&gt;&lt;/a&gt;
+	&lt;a class=&quot;sw-youtube&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+
+        <p>More PNG/SVG icons you can get here <a href="https://icomoon.io/app/" target="_blank">https://icomoon.io/app/</a> from "IconMoon - Free" set and add to "smartwave-skins/skin.css" file.</p>
+
+
+
+        <!-------------- DON'T EDIT AFTER THIS LINE -------------->
+
+        <br>
+        <p>
+            <em>Thanks for reading!</em>
+        </p>
+
+        <div class="footer">
+            <ul>
+                <li><a class="demo" href="../index.html">&larr; Back to Demo</a></li>
+                <li><a class="top" href="#">Top</a></li>
+                <li>flGravity &copy; 2013</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                var hash = '';
+
+                function scroll(name) {
+                    var anchor = document.getElementById(name);
+                    if (anchor !== null) {
+                        $('html,body').animate({ scrollTop: $(anchor).offset().top }, 'slow');
+                        anchor.id = "tmp_" + name;
+                        hash = '#' + name;
+                        window.location.hash = name;
+                        anchor.id = name;
+                    }
+                }
+
+                function hashchange() {
+                    if (hash != window.location.hash) {
+                        scroll(window.location.hash.substr(1));
+                    }
+
+                }
+
+                $('a[href^="#"]').each(function () {
+                    $(this).click(function (e) {
+                        scroll($(this).attr('href').substr(1));
+                        e.preventDefault();
+                    });
+                });
+
+                setInterval(hashchange, 500);
+
+                $('.top').click(function () {
+                    $('html, body').animate({ scrollTop: 0 }, 'slow')
+                });
+            });
+        </script>
+    </div>
+
+</body>
+</html>
