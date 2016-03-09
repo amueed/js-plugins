@@ -1,0 +1,120 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=1" />
+    <meta name="description" content="jSon Slider is a multi purpose jQuery plugin. We can crate slider, carousel & timeline.">
+    <meta name="keywords" content="fast slider, image slider, jquery slider, json slider, responsive carousel, responsive slider, sorting carousel, json tab, team carousel, json carousel, json testimonial, timeline, json timeline, touch slider, unique slider, video slider">
+
+    <title>jSon Slider</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- Google Font Open+Sans -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+    <!-- Animate.css - http://daneden.me/animate -->
+    <link type="text/css" rel="stylesheet" href="css/animate-min.css">
+
+    <!-- Font Awesome -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- jSon Slider CSS -->
+    <link type="text/css" rel="stylesheet" href="css/full-screen.css">
+</head>
+
+<body>
+
+    <!-- Header Start -->
+    <div id="header">
+        <ul class="custom-menu custom-menu-response-to-icons">
+            <li class="current">
+                <a href="index.html"><i class="fa fa-single fa-home"></i></a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="fa fa-compress"></i>Sliders</a>
+                <div class="grid-container4">
+                    <ul>
+                        <li><a href="fix-width.html"><i class="fa fa-angle-double-right"></i>Fix width</a></li>
+                        <li><a href="full-screen-height.html"><i class="fa fa-angle-double-right"></i>Full screen + 100% height</a></li>
+                        <li><a href="thumb.html"><i class="fa fa-angle-double-right"></i>Thumbnails, bullets or HTML</a></li>
+                        <li><a href="image.html"><i class="fa fa-angle-double-right"></i>Image slider</a></li>
+                        <li><a href="video.html"><i class="fa fa-angle-double-right"></i>Youtube and HTML5 videos</a></li>
+                        <li><a href="testimonial.html"><i class="fa fa-angle-double-right"></i>Testimonial</a></li>
+                        <li><a href="tab.html"><i class="fa fa-angle-double-right"></i>Tab</a></li>
+                        <li><a href="index.html?slide=2"><i class="fa fa-angle-double-right"></i>Select slide by GET method in URl</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="fa fa-leaf"></i>Carousel</a>
+                <div class="grid-container4">
+                    <ul>
+                        <li><a href="team-carousel.html"><i class="fa fa-angle-double-right"></i>Team Carousel + sorting option</a></li>
+                        <li><a href="carousel.html"><i class="fa fa-angle-double-right"></i>Image Carousel</a></li>
+                        <li><a href="movie-carousel.html"><i class="fa fa-angle-double-right"></i>Movie Carousel</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="timeline.html"><i class="fa fa-mail-forward"></i>Timeline</a></li>
+            <li>
+                <a href="javascript:;"><i class="fa fa-gears"></i>Features</a>
+                <div class="grid-container5">
+                    <ul>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Very fast-loading slider</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>CSS & jQuery animation</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Carousel, Testimonial, Tab & Timeline</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Search within slides</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Videos in slides</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Full screen</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Thumbnails, bullets or HTML</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Customizable interface</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Option for circulation of slides</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Pagination & Navigation controls</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Fully Responsive</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Sorting Option</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-angle-double-right"></i>Autoplay support</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="right highlight">
+                <a target="_blank" href="http://codecanyon.net/item/json-slider-carousel-timeline-responsive-jquery-plugin/13215401?s_phrase=&s_rank=38"><i class="fa fa-shopping-cart"></i>Buy</a>
+            </li>
+            <li class="right">
+                <a target="_blank" href="documentation/index.html"><i class="fa fa-info"></i>Documentation</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Header End -->
+    <!-- Slider Start -->
+    <div id="fullscreen"></div>
+    <!-- Slider End -->
+    <!-- jQuery Library -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- jSon Slider JS -->
+    <script src="js/json-slider-min.js"></script>
+
+    <script>
+        // Json Object
+        var data;
+
+        // Call Slider function
+        $(window).load(function () {
+
+            $.getJSON('js/slider-data.json', function (res) {
+                data = res;
+            });
+
+            $('#fullscreen').jSonSlider({
+                'nextclass': 'fa fa-angle-right',
+                'prevclass': 'fa fa-angle-left',
+                'search': [true, '2'],
+                'data': data
+            });
+        });
+    </script>
+
+</body>
+</html>
