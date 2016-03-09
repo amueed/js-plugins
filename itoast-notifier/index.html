@@ -1,0 +1,386 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>iToast - Quickstart Guide</title>
+    <script src="ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/itoast.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="readmeassets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="css/font-awesome-ie7.css"><![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/itoast.css">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#"><i class="icon-glass"></i> iToast</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#theming">Theming</a></li>
+                        <li><a href="#notification-types">Notification Types</a></li>
+                        <li><a href="#api">API</a></li>
+                        <li><a href="#sources-and-credits">Sources & Credits</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <div class="hero-unit" style="position: relative;">
+            <h1><i class="icon-glass"></i> iToast Notifier</h1>
+            <p>A toast to your users for always being there for you!</p>
+            <img style="position: absolute;top: 40px;right: 40px" src="readmeassets/images/itoast_thm.png" />
+            <p><a id="show-me-a-toast" class="btn btn-primary btn-large">Show Me A Toast! &raquo;</a></p>
+        </div>
+        <h2 id="installation">&zwnj;</h2>
+        <h2><i class="icon-folder-open"></i> Installation</h2>
+        <h4><i class="icon-file"></i> Javascript</h4>
+        <p>
+            I have included 'itoast.min.js'.  Just include this on your html page like this:
+            <pre>&lt;script type="text/javascript" src="js/itoast.min.js"&gt;&lt;/script&gt;</pre>
+            jQuery or any other javascript library may be used with iToast, but is not required.
+        </p>
+        <h4 class="icon-tint"> CSS</h4>
+        <p>
+            I have included 'itoast.css'.  Just include this on your html page like this:
+            <pre>&lt;link type="text/css" rel="stylesheet" href="css/itoast.css"/&gt;</pre>
+        </p>
+
+        <h4><i class="icon-info-sign"></i> Icons</h4>
+        <p>
+        <p>
+            I have included a libary called <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome <i class="icon-external-link"></i></a>.
+            It really is awesome!  This is what will allow you to have 220 possible different icons
+            on your notifications. If you aren't already using font awesome on your project
+            then you can install it by simply including the two font-awesome css files like this:
+            <pre>&lt;link rel="stylesheet" type="text/css" href="css/font-awesome.css"&gt;<br>&lt;!--[if IE 7]&gt;&lt;link rel="stylesheet" href="css/font-awesome-ie7.css"&gt;&lt;![endif]--&gt;</pre>
+            <b>important:</b> You will also need to include the "font" directory and put it next to the "css" directory in your project.
+            For example:
+            <img src="readmeassets/images/structure.png" alt="CSS Structure">
+
+        </p>
+        </p>
+        <h2 id="examples">&zwnj;</h2>
+        <h2><i class="icon-magic"></i> Examples</h2>
+        <h4><i class="icon-star"></i> Basic Usage</h4>
+        <p>
+            The most simple way to use iToast is to call the 'showNotification' function:
+            <pre>iToast.showNotification('Notification','This is a simple notification');
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification');">Try It</button></pre>
+        </p>
+        <h4><i class="icon-leaf"></i> Specifying Themes</h4>
+        <p>
+            There are also different theme styles that you can use:
+            <ul>
+                <li>'default' - this is the default when you don't specify one</li>
+                <li>'asphalt' - looks good on a light background</li>
+                <li>'jetblack' - also looks good on a light background</li>
+                <li>'frosted' - looks good on a dark background</li>
+                <li>'square' - just for fun</li>
+                <li>'mono' - just for fun</li>
+            </ul>
+            Here is how you can use them:
+            <pre>iToast.showNotification('Notification','This is a simple notification',{ theme: 'asphalt' });
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification',{ theme: 'asphalt' });"><i class="icon-beaker"></i> Try It</button></pre>
+            <pre>iToast.showNotification('Notification','This is a simple notification',{ theme: 'jetblack' });
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification',{ theme: 'jetblack' });"><i class="icon-beaker"></i> Try It</button></pre>
+        </p>
+        <h4><i class="icon-leaf"></i> Using Icons</h4>
+        <p>
+            <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome <i class="icon-external-link"></i></a> will allow you to put one of 220 icons on your notificaton.
+            All you have to do is include the font awesome class name, but without the "icon-" prefix.  To see a list of all 220 icon class names, see the <a href="http://fortawesome.github.com/Font-Awesome/#all-icons" target="_blank">Font Awesome project home page <i class="icon-external-link"></i></a>.
+            So this allows us to include an icon like this:
+            <pre>iToast.showNotification('Notification','This is a simple notification',{icon: 'comment'});
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification',{icon: 'comment'});"><i class="icon-beaker"></i> Try It</button></pre>
+        </p>
+        <p>
+            You can also specify any color for your icon.  Just specify a css color like this:
+            <pre>iToast.showNotification('Notification','This is a simple notification',{icon: 'comment', iconColor: 'green'});
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification',{icon: 'comment', iconColor: 'green'});"><i class="icon-beaker"></i> Try It</button></pre>
+            Or you can also use a hex value of course:
+            <pre>iToast.showNotification('Notification','This is a simple notification',{icon: 'comment', iconColor: '#ffffff'});
+<button class="btn btn-small btn-primary" onclick="iToast.showNotification('Notification','This is a simple notification',{icon: 'comment', iconColor: '#ffffff'});"><i class="icon-beaker"></i> Try It</button></pre>
+        </p>
+
+        <h2 id="theming">&zwnj;</h2>
+        <h2><i class="icon-picture"></i> Theming</h2>
+        <p>
+            You can easily create your own theme that can be accessed whenever you
+            create a notification.  Here is an example:
+            <pre>
+/** this theme is called 'foobar' and can be specified
+    when creating a notification because it has the class
+    'theme-foobar'
+**/
+.itoast-main-container.theme-foobar .itoast-inner-container {
+    background-color: #0262CC;
+    opacity: .8;
+    color: white;
+    text-shadow: 0px 1px 2px rgba(256,256,256,1);
+}
+      </pre>
+            <style>
+                .itoast-main-container.theme-foobar .itoast-inner-container {
+                    background-color: #0262CC;
+                    opacity: .8;
+                    color: white;
+                    text-shadow: 0px 1px 1px rgba(0,0,0,.5);
+                }
+            </style>
+            So to create a notification that uses your new theme, all you would have to
+            do is include it as the theme property in your configuration like so:
+            <pre>iToast.showToast('Message here',{theme: 'foobar'});
+<button class="btn btn-small btn-primary" onclick="iToast.showToast('Message here',{theme: 'foobar'});"><i class="icon-beaker"></i> Try It</button></pre></pre>
+        </p>
+
+        <h2 id="notification-types">&zwnj;</h2>
+        <h2><i class="icon-reorder"></i> Notification Types</h2>
+        There are four different notification types that can be used as an alternative to the default options:
+
+        <h4><i class="icon-check"></i> Success</h4>
+        Displays a green checkbox next to the message to give user feedback when they have successfully done something.
+        Here's how you do it:
+        <pre>iToast.showSuccess('Success','This is a simple message');
+<button class="btn btn-small btn-primary" onclick="iToast.showSuccess('Success','This is a simple message');"><i class="icon-beaker"></i> Try It</button></pre>
+
+        <h4><i class="icon-warning-sign"></i> Warning</h4>
+        Displays a yellow warning sign next to the message to give user feedback when they need to be warned of something.
+        Here's how you do it:
+        <pre>iToast.showWarn('Warning','This is a simple message');
+<button class="btn btn-small btn-primary" onclick="iToast.showWarn('Warning','This is a simple message');"><i class="icon-beaker"></i> Try It</button></pre>
+
+        <h4><i class="icon-exclamation-sign"></i> Error</h4>
+        Displays a red error sign next to the message to give user feedback when they need to be aware of an error that has occurred.
+        Here's how you do it:
+        <pre>iToast.showError('Error','This is a simple message');
+<button class="btn btn-small btn-primary" onclick="iToast.showError('Error','This is a simple message');"><i class="icon-beaker"></i> Try It</button></pre>
+
+        <h4><i class="icon-thumbs-up"></i> Cool</h4>
+        Displays a blue thumbs up next to the message to give user feedback when they have done something cool.
+        Here's how you do it:
+        <pre>iToast.showCool('Cool','This is a simple message');
+<button class="btn btn-small btn-primary" onclick="iToast.showCool('Cool','This is a simple message');"><i class="icon-beaker"></i> Try It</button></pre>
+
+        <h2 id="api">&zwnj;</h2>
+        <h2><i class="icon-cogs"></i> API</h2>
+
+        This is where iToast gets really fun.  iToast is really flexible and allows you
+        to do whatever you need.
+        <h3>showToast Function</h3>
+        <pre>iToast.showToast(<i>message</i>,<i>options</i>);</pre>
+        <ul>
+            <li>
+                <b>message</b>:<i>string</i> - The message that will display in the body of the
+                notification.
+            </li>
+            <li>
+                <b>options</b>:<i>object</i> - A configuration object containing
+                each of the options for the notificaton.
+            </li>
+        </ul>
+
+        <h3>Options Configuration Object</h3>
+        <pre>iToast.showToast(<i>message</i>,{
+        <i><b>title</b></i>: undefined,
+        <i><b>icon</b></i>: 'certificate',
+        <i><b>position</b></i>: 'bottom right',
+        <i><b>pauseTime</b></i>: 4000,
+        <i><b>theme</b></i>: 'default',
+        <i><b>showCloseButton</b></i>: true,
+        <i><b>pauseOnHover</b></i>: true,
+        <i><b>returnAfterHoverTime</b></i>: 1000,
+        <i><b>type</b></i>: 'general',
+        <i><b>iconColor</b></i>: 'none',
+        <i><b>onClick</b></i>: function(e) {},
+});</pre>
+        <ul>
+            <li>
+                <b>title</b>:<i>string</i> - <b>default</b>:<i>undefined</i> -
+                Specify an optional title heading that will show on the top of the notification
+                in bold text.
+            </li>
+            <li>
+                <b>icon</b>:<i>string</i> - <b>default</b>:<i>'certificate'</i> - The icon that will appear next to the message.
+                You can specify any icon from <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>
+                but without the "icon-" prefix.
+            </li>
+            <li>
+                <b>position</b>:<i>string</i> - <b>default</b>:<i>'bottom right'</i> - A string specifying where the notification will appear.
+                possible options are:
+                <ul>
+                    <li>'top right'</li>
+                    <li>'bottom right'</li>
+                    <li>'top left'</li>
+                    <li>'bottom left'</li>
+                </ul>
+            </li>
+            <li>
+                <b>pauseTime</b>:<i>int</i> - <b>default</b>:<i>4000</i> - The
+                time in milliseconds to wait before the notification automatically
+                goes away.
+            </li>
+            <li>
+                <b>theme</b>:<i>string</i> - <b>default</b>:<i>'default'</i> -
+                A string specifying the theme to be used.  This value is a hook into the css,
+                so you can <a href="#cssFiles">create your own theme</a>.
+                The possible options are:
+                <ul>
+                    <li>'default'</li>
+                    <li>'asphalt'</li>
+                    <li>'jetblack'</li>
+                    <li>'frosted'</li>
+                    <li>'square'</li>
+                    <li>'mono'</li>
+                </ul>
+            </li>
+            <li>
+                <b>showCloseButton</b>:<i>boolean</i> - <b>default</b>:<i>true</i> - Set
+                to false if you don't want the close button to appear.
+            </li>
+            <li>
+                <b>pauseOnHover</b>:<i>boolean</i> - <b>default</b>:<i>true</i> -
+                Allows the user to hover their mouse over the notification without it going away
+                after the specified amount of time.  Set to false if you don't want this
+                behavior
+            </li>
+            <li>
+                <b>returnAfterHoverTime</b>:<i>int</i> - <b>default</b>:<i>1000</i> -
+                If 'pauseOnHover' is true, this is the time in milliseconds to wait before
+                the notification goes away after the user has hovered over it and moved their
+                mouse away.
+            </li>
+            <li>
+                <b>type</b>:<i>string</i> - <b>default</b>:<i>'general'</i> -
+                The type of notification to be displayed.  The icon will change color
+                according to the type of notification you want.
+                The possible options are:
+                <ul>
+                    <li>'general' - monochrome</li>
+                    <li>'success' - green</li>
+                    <li>'cool' - blue</li>
+                    <li>'error' - red</li>
+                    <li>'warn' - yellow</li>
+                </ul>
+            </li>
+            <li>
+                <b>iconColor</b>:<i>string</i> - <b>default</b>:<i>none</i> -
+                The color of the icon.  This will override the 'type' setting.
+                If this is set to 'none' it will do nothing. Otherwise you can
+                set it to any valid css color property. (ie: '#0000FF', 'rgba(20,20,30,.5)')
+            </li>
+            <li>
+                <b>onClick</b>:<i>function</i> - <b>default</b>:<i>does nothing</i> -
+                This is a callback that will allow you to do anything when the user clicks
+                on the notification.  The event is passed in as the first parameter.  Here's
+                an example:
+                <pre>
+iToast.showToast('Click me!',{
+  onClick: function(e) {
+    alert('you clicked the notification!');
+  }
+});
+<button class="btn btn-small btn-primary" onclick="iToast.showToast('Click me!',{onClick: function(e) {alert('you clicked the notification!');}});"><i class="icon-beaker"></i> Try It</button></pre></pre>
+                </pre>
+            </li>
+        </ul>
+
+        <h2 id="sources-and-credits">&zwnj;</h2>
+        <h2><i class="icon-edit"></i> Sources and Credits</h2>
+
+        <p>
+            I've used the following images, icons or other files as listed.
+
+            <ul>
+                <li>Thanks to <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome <i class="icon-external-link"></i></a> for the great icon library</li>
+                <li>Thanks to Matthew Daniels for the awesome <a href="http://dribbble.com/shots/719665-Crystal-desktop-wallpaper-download" target="_blank">Crystal Background <i class="icon-external-link"></i></a></li>
+                <li>Thanks to <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap <i class="icon-external-link"></i></a> for the layout of this quick start guide.</li>
+            </ul>
+
+        <p class="append-bottom alt large"><strong>- justspamjustin</strong></p>
+        <p></p>
+
+
+
+
+        <!-- Footer -->
+
+        <hr>
+        <footer>
+            <p>&copy; iToast justspamjustin 2012</p>
+        </footer>
+
+    </div> <!-- /container -->
+    <script type="text/javascript">
+
+        // Show me a toast button
+        var possibleMessages = [
+          {
+              title: 'Oh my gosh!',
+              message: "You've got gangnam style!",
+              theme: 'default',
+              type: 'cool'
+          },
+          {
+              title: 'Imma let you finish',
+              message: "but iToast is one of the best js notifiers of all time!",
+              icon: 'glass',
+              theme: 'jetblack'
+          },
+          {
+              title: 'Warning!',
+              message: "All your base are belong to us!",
+              type: 'warn',
+              icon: 'warning-sign'
+          },
+          {
+              title: 'Message from Bart',
+              message: '"Eat my shorts!"',
+              icon: 'comments'
+          },
+          {
+              title: 'Item Uploaded',
+              message: 'Not really, but wouldn\'t it be cool?',
+              icon: 'cloud',
+              theme: 'asphalt'
+          },
+          {
+              title: 'iToast Notifier',
+              message: 'Finally a notifier that even your girlfriend approves of.',
+              icon: 'heart-empty'
+          },
+          {
+              title: 'You\'re listening to',
+              message: 'The js notifier that is iToast.',
+              icon: 'music'
+          }
+        ];
+
+        $('#show-me-a-toast').click(function () {
+            var num = Math.floor(Math.random() * 7);
+
+            var message = possibleMessages[num];
+            iToast.showToast(message.message, message);
+        });
+    </script>
+</body>
+</html>

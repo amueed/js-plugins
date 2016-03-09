@@ -1,0 +1,35 @@
+body {
+    font-family: "Open Sans";
+    background: #E9EAED;
+}
+header {
+    height: 120px;
+    background: #333;
+}
+h3 {
+    font-weight: 200;
+    font-size: 20px;
+    margin: 10px 0;
+    color: #555;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+#logo {
+    padding: 15px 0;
+}
+#filter {
+    padding-top: 20px;
+}
+aside div {
+    margin-top: 20px;
+    padding: 20px 30px!important;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}

@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IDEABOX Elegant Forms</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/breakingNews.css" />
+
+    <script src="js/jQuery.js"></script>
+    <script src="js/breakingNews.js"></script>
+</head>
+
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: 'PT Sans';
+        font-size: 16px;
+        background: url(trash/pattern.png);
+    }
+
+    header {
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        color: #FFF;
+    }
+
+        header h1 {
+            font-size: 48px;
+        }
+
+        header a {
+            color: #FFF;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border: solid 1px #FFF;
+        }
+
+            header a:hover {
+                border-color: #c30;
+            }
+
+            header a.active {
+                background: #FFF;
+                color: #333;
+            }
+</style>
+<body>
+    <header>
+        <h1>Breaking News Ticker</h1>
+        <h3>Jquery Plugin</h3>
+        <a href="index.html">HTML Data Example</a>
+        <a class="active" href="rss.html">RSS Data Example</a>
+    </header>
+
+
+    <div style="width:100%; max-width:960px; margin:0 auto; padding:0 20px 50px 20px; box-sizing:border-box;">
+
+        <div class="breakingNews" id="bn1">
+            <div class="bn-title"><h2>News From BBC & CNN</h2><span></span></div>
+            <ul></ul>
+            <div class="bn-navi">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(window).load(function (e) {
+            $("#bn1").breakingNews({
+                effect: "slide-h",
+                autoplay: true,
+                timer: 3000,
+                color: "green",
+                feed: "http://feeds.bbci.co.uk/news/business/rss.xml,http://rss.cnn.com/rss/edition.rss",
+                feedlabels: "BBC News,CNN News",
+                feedcount: 3
+            });
+        });
+    </script>
+
+</body>
+</html>

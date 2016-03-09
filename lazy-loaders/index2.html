@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- JQUERY / required -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <!-- BOOTSTRAP / optional -->
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IMAGESLOADED / required for Isotope -->
+    <script src="plugins/jquery-lazyloader/js/imagesloaded.min.js"></script>
+    <!-- ISOTOPE / optional -->
+    <script src="plugins/isotope/jquery.isotope.min.js"></script>
+    <script src="plugins/isotope/jquery.isotope.sloppy-masonry.min.js"></script>
+    <!-- LAZYLOADER / required -->
+    <link href="plugins/jquery-lazyloader/css/lazyloader.css" rel="stylesheet" />
+    <script src="plugins/jquery-lazyloader/js/lazyloader.js"></script>
+
+    <!-- DEMO / optional -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="demo.css">
+
+    <script>
+        $(function () {
+            $('.lazy-wrapper').lazyLoader({
+                jsonFile: 'datas.json',
+                mode: 'scroll',
+                limit: 14,
+                records: 57,
+                offset: 1,
+                isIsotope: true,
+                isotopeResize: 4
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="Lazy Loader" id="logo">
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row lazy-wrapper"></div>
+            </div>
+            <aside class="col-md-3">
+                <div>
+                    <h3>Demo</h3>
+                    <ul>
+                        <li><a href="index.html">Demo 1: Click event gallery</a></li>
+                        <li><a href="index2.html">Demo 2: Infinite scroll gallery</a></li>
+                        <li><a href="index3.html">Demo 3: Blog articles (Ajax)</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
